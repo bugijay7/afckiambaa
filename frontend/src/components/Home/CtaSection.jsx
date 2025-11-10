@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ctaBg from "../../assets/hero3.jpeg"; // ✅ Replace 'hero.jpg' with your actual image file (e.g. cta-bg.jpg, banner.jpg)
 
 export default function CTASection() {
   return (
     <section
       className="relative bg-cover bg-center bg-no-repeat text-white py-20 px-6 md:px-20 text-center overflow-hidden"
       style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1526481280690-881ebfa3a21a?auto=format&fit=crop&w=1400&q=80')", // ✅ Replace with your image URL
+        backgroundImage: `url(${ctaBg})`, // ✅ Local image import used here
       }}
     >
-      {/* 🔹 Overlay (for readability & theme blending) */}
-      <div className=""></div>
+      {/* 🔹 Overlay for contrast */}
+      <div className="absolute inset-0 bg-black/60"></div>
 
       {/* 🔹 Content */}
       <div className="relative z-10 max-w-4xl mx-auto">
@@ -19,9 +19,8 @@ export default function CTASection() {
           Join Us and Be Part of a Growing Family
         </h2>
         <p className="md:text-lg text-xs text-white/90 mb-8 max-w-2xl mx-auto">
-          Experience powerful worship, inspiring messages, and a community
-          that walks together in faith and purpose. Let’s grow and serve
-          together.
+          Experience powerful worship, inspiring messages, and a community that
+          walks together in faith and purpose. Let’s grow and serve together.
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -40,7 +39,7 @@ export default function CTASection() {
         </div>
       </div>
 
-      {/* 🔹 Decorative shapes (optional, subtle glow) */}
+      {/* 🔹 Decorative glow elements */}
       <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
       <div className="absolute -top-10 -left-10 w-52 h-52 bg-white/10 rounded-full blur-3xl"></div>
     </section>

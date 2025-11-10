@@ -1,31 +1,19 @@
-import express from 'express';
-import multer from 'multer';
-import {
-  createEvent,
-  getEvents,
-  getEventById,
-  updateEvent,
-  deleteEvent,
-} from '../controllers/eventController.js';
+import express from "express";
+import upload from "../middlewares/upload.js"
 
 const router = express.Router();
 
-// Multer setup for image uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/'); 
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname);
-  },
+// Upload event image
+router.post("/upload", upload.single("image"), (req, res) => {
+  res.json({
+    message: "Event image uploaded successfully",
+    file: req.file,
+  });
 });
-const upload = multer({ storage });
 
-// Routes
-router.post('/', upload.single('image'), createEvent);
-router.get('/', getEvents);
-router.get('/:id', getEventById);
-router.put('/:id', upload.single('image'), updateEvent);
-router.delete('/:id', deleteEvent);
+// Example: get all events
+router.get("/", (req, res) => {
+  res.json({ message: "Events route working fine" });
+});
 
 export default router;

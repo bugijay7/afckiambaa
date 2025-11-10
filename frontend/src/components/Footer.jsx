@@ -53,7 +53,7 @@ function Footer() {
       <nav>
         <h6 className="footer-title">Resources</h6>
         <Link to="/live" className="link link-hover">
-          Sermons
+          Livestream
         </Link>
         <Link to="/giving" className="link link-hover">
           Give Online
