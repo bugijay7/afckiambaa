@@ -11,7 +11,7 @@ function ManageEvents() {
 
   const fetchEvents = async () => {
   try {
-    const res = await axios.get("http://localhost:5000/api/events");
+    const res = await axios.get("https://afckiambaa.onrender.com/api/events");
     console.log("Events fetched:", res.data);
     setEvents(res.data.events || []);
   } catch (err) {
@@ -23,7 +23,7 @@ function ManageEvents() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this event?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/events/${id}`);
+      await axios.delete(`https://afckiambaa.onrender.com/api/events/${id}`);
       setEvents(events.filter((event) => event._id !== id));
     } catch (err) {
       console.error("Error deleting event:", err);
@@ -49,7 +49,7 @@ function ManageEvents() {
                 <img
                   src={
                     event.image
-                      ? `http://localhost:5000/${event.image}`
+                      ? `https://afckiambaa.onrender.com/${event.image}`
                       : "https://via.placeholder.com/150"
                   }
                   alt={event.title || "Event"}

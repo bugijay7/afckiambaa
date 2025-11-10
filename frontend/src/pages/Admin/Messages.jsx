@@ -4,7 +4,7 @@ export default function Messages() {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const API_URL = "http://localhost:5000/api/messages";
+  const API_URL = "https://afckiambaa.onrender.com/api/messages";
 
   // ✅ Fetch messages from backend
   const fetchMessages = async () => {

@@ -7,7 +7,7 @@ export default function EventPreview() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/events");
+        const res = await fetch("https://afckiambaa.onrender.com/api/events");
         if (!res.ok) throw new Error("Failed to fetch events");
         const data = await res.json();
         setEvents((data.events || []).slice(0, 3));
@@ -42,7 +42,7 @@ export default function EventPreview() {
         {events.length > 0 ? (
           events.map((event) => {
             const imageUrl = event.image
-              ? `http://localhost:5000/${event.image.replace(/\\/g, "/")}`
+              ? `https://afckiambaa.onrender.com/${event.image.replace(/\\/g, "/")}`
               : "/placeholder.jpg";
 
             return (

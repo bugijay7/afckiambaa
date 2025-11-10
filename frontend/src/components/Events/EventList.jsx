@@ -9,7 +9,7 @@ export default function EventList() {
   useEffect(() => {
     const fetchEvents = async () => {
   try {
-    const res = await fetch("http://localhost:5000/api/events");
+    const res = await fetch("https://afckiambaa.onrender.com/api/events");
     if (!res.ok) throw new Error("Failed to fetch events");
     const data = await res.json();
     console.log("Fetched events:", data); // ✅ Debug line
@@ -72,7 +72,7 @@ export default function EventList() {
                 {/* Image */}
                 <div className="md:w-[220px] md:h-[180px] w-full h-56 overflow-hidden">
                  <img
-  src={`http://localhost:5000/${event.image.replace(/\\/g, "/")}`}
+  src={`https://afckiambaa.onrender.com/${event.image.replace(/\\/g, "/")}`}
   alt={event.title}
   className="object-cover w-full h-full"
 />

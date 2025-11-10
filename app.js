@@ -21,7 +21,7 @@ const app = express();
 // ✅ Allow requests from your frontend
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["https://afckiambaa.vercel.app"],
     credentials: true,
   })
 );

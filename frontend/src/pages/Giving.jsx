@@ -17,7 +17,7 @@ export default function Giving() {
     setLoading(true);
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/mpesa/stkpush", // ✅ Local endpoint
+        "https://afckiambaa.onrender.com/api/mpesa/stkpush", // ✅ Local endpoint
         { phone, amount }
       );
       setMessage("✅ STK push sent! Please check your phone to complete the payment.");
