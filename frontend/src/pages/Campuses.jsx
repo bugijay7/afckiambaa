@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import heroImg from "../assets/hero3.jpEg"; 
-import yourImportedImage from "../assets/mother.jpEg";
+import heroImg from "../assets/hero3.jpeg"; 
+import yourImportedImage from "../assets/mother.jpeg";
 
 
 export default function Campuses() {
