@@ -64,8 +64,8 @@ function Navbar() {
         <li><Link to="/services" onClick={handleLinkClick}>Services</Link></li>
         <li><Link to="/project" onClick={handleLinkClick}>Project</Link></li>
         <li><Link to="/contact" onClick={handleLinkClick}>Contact</Link></li>
-        <li><Link to="/giving" onClick={handleLinkClick}>Donate</Link></li>
-        <li><Link to="/login" onClick={handleLinkClick}>Login</Link></li>
+        <li><Link to="/giving" onClick={handleLinkClick}>Give</Link></li>
+        <li><Link to="/campuses" onClick={handleLinkClick}>AFC Near You</Link></li>
       </ul>
     </div>
   )}

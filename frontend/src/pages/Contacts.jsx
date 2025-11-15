@@ -67,11 +67,11 @@ export default function ContactPage() {
       <div className="bg-black/60 min-h-screen w-full pt-32 pb-16 px-6 md:px-20 font-montserrat">
         <div className="max-w-6xl mx-auto">
           {/* 🕊 Title */}
-          <div className="text-center mb-12 text-base-100">
+          <div className="text-left mb-12 text-base-100">
             <h1 className="text-4xl md:text-5xl font-medium text-primary mb-3">
               Get in Touch
             </h1>
-            <p className="text-white">
+            <p className="text-white text-xs md:text-lg">
               We’d love to connect with you! Reach out to Apostolic Faith Church
               Kiambaa for inquiries, prayer requests, or fellowship opportunities.
               Our team is here to support you in your walk of faith.
@@ -82,23 +82,23 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             {/* 🏠 Contact Info */}
             <div className="space-y-6 text-base-100">
-              <h2 className="text-2xl font-medium">Contact Information</h2>
+              <h2 className="text-sm md:text-2xl font-medium">Contact Information</h2>
 
               <div className="flex items-center gap-3">
                 <FaMapMarkerAlt className="text-primary text-lg" />
-                <p>Apostolic Faith Church, Kiambaa, Kiambu County, Kenya</p>
+                <p className="text-sm md:text-2xl">Apostolic Faith Church, Kiambaa, Kiambu County</p>
               </div>
 
               <div className="flex items-center gap-3">
                 <FaPhoneAlt className="text-primary text-lg" />
-                <a href="tel:+254722850169" className="hover:text-primary transition">
+                <a href="tel:+254722850169" className="hover:text-primary transition text-sm md:text-2xl">
                   +254 722 850 169
                 </a>
               </div>
 
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-primary text-lg" />
-                <a href="mailto:kiambaaafc@gmail.com" className="hover:text-primary transition">
+                <a href="mailto:kiambaaafc@gmail.com" className="hover:text-primary transition text-sm md:text-2xl">
                   kiambaaafc@gmail.com
                 </a>
               </div>
@@ -112,7 +112,7 @@ export default function ContactPage() {
                 <div className="flex flex-col gap-3 text-sm">
                   <a href="https://www.facebook.com/Afckiambaa" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:text-primary-focus transition">
                     <FaFacebookF className="text-lg" />
-                    <span>Follow AFCK on Facebook</span>
+                    <span>Follow on Facebook</span>
                   </a>
 
                   <a href="https://www.instagram.com/afckiambaa_" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:text-primary-focus transition">
@@ -134,9 +134,9 @@ export default function ContactPage() {
             </div>
 
             {/* 📬 Contact Form */}
-            <form onSubmit={handleSubmit} className="bg-base-100 shadow-xl rounded-2xl p-8 space-y-6 border border-base-300">
+            <form onSubmit={handleSubmit} className="bg-primary/20 shadow-xl rounded-2xl p-8 space-y-6 border border-base-300">
               <div>
-                <label className="block font-medium mb-2">Full Name</label>
+                <label className="block font-medium mb-2 text-white">Name</label>
                 <input
                   name="name"
                   type="text"
@@ -149,7 +149,7 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label className="block font-medium mb-2">Phone Number</label>
+                <label className="block font-medium mb-2 text-white">Phone Number</label>
                 <input
                   name="phone"
                   type="tel"
@@ -162,7 +162,7 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label className="block font-medium mb-2">Message</label>
+                <label className="block font-medium mb-2 text-white">Message</label>
                 <textarea
                   name="message"
                   placeholder="Write your message..."

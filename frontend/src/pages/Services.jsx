@@ -15,8 +15,8 @@ export default function Services() {
     >
       <div className="bg-black/50 min-h-screen w-full flex flex-col items-center py-16">
         {/* ✝️ INTRO SECTION */}
-        <section className="max-w-2xl mx-auto py-16 text-center text-base-100">
-          <p className="text-sm md:text-xl italic leading-relaxed mb-6">
+        <section className="max-w-2xl mx-auto py-16 text-left text-base-100">
+          <p className="text-sm md:text-xl italic leading-relaxed mb-6 px-6">
             At <strong className="underline underline-offset-4 text-primary">Apostolic Faith Church Kiambaa</strong>, our services are designed to
             bring believers together for worship, fellowship, spiritual growth, and
             transformation through the power of God’s Word.

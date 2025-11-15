@@ -22,17 +22,17 @@ function EventsHero() {
         </div>
 
         {/* Heading */}
-        <h2 className="text-3xl md:text-7xl font-bold mb-4 text-white">
+        <h2 className="text-2xl md:text-7xl font-bold mb-4 text-primary">
           Gather • Grow • Serve
         </h2>
 
         {/* Intro paragraph */}
-        <p className="text-white-- md:text-lg text-primary leading-relaxed mb-6 font-bold max-w-3xl mx-auto">
+        <p className="text-xs md:text-lg text-primary-content leading-relaxed mb-6 font-bold max-w-3xl mx-auto">
           At <span className="font-extrabold">Apostolic Faith Church Kiambaa</span>, our events are more than just gatherings—they are moments where hearts are renewed, faith is strengthened, and communities are built. Whether it’s worship, teaching, or fellowship, every event is designed to help you draw closer to Christ and connect with others in His love.
         </p>
 
         {/* Bible Verse */}
-        <blockquote className="italic text-white-- md:text-lg text-primary font-medium">
+        <blockquote className="italic text-xs md:text-lg text-primary font-medium">
           “And let us consider how we may spur one another on toward love and good deeds, not giving up meeting together…” — <span className="font-semibold">Hebrews 10:24–25</span>
         </blockquote>
       </div>

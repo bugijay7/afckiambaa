@@ -484,9 +484,9 @@ export default function Campuses() {
         </div>
       </section>
 
-     <div className="flex flex-col md:flex-row items-center max-w-6xl mx-auto py-12 px-6 gap-8">
+     <div className="flex flex-col-reverse md:flex-row items-center max-w-6xl mx-auto py-12 px-6 gap-8">
   {/* 🔹 Text Section */}
-  <section className="flex-1 bg-base-200 p-6 text-center md:text-left ">
+  <section className="flex-1 bg-base-200 p-6 text-left md:text-left ">
     <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary">
       Our Headquaters – Apostolic Faith Church Bahati
     </h2>
@@ -530,7 +530,7 @@ export default function Campuses() {
       </section>
 
       {/* 🔹 Regions Filter */}
-<section className="max-w-6xl mx-auto px-6 pb-8">
+<section className="max-w-6xl mx-auto px-3 pd-5 md:px-6 md:pb-8">
   <h3 className="text-xl font-semibold mb-4 text-center">Filter by Region</h3>
   <div className="flex flex-wrap justify-center gap-3 mb-6">
     {regions
@@ -539,7 +539,7 @@ export default function Campuses() {
         <button
           key={r}
           onClick={() => setRegion(r)}
-          className={`px-4 py-2 rounded-full border ${
+          className={`px-4 py-2  border ${
             region === r || (index === 0 && region === "All") // default first button active
               ? "bg-primary text-white border-primary"
               : "bg-base-200 text-base-content border-gray-300 hover:bg-base-300"
