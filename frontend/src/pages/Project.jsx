@@ -69,9 +69,7 @@ function Project() {
               Together, we can raise a sanctuary for generations to meet with God.
             </p>
 
-            <a href="/giving" className="btn btn-primary mt-4 text-xs">
-              Support the Project
-            </a>
+           
           </div>
 
           {/* Right - Supporting Image */}

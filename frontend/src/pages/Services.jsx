@@ -26,7 +26,7 @@ export default function Services() {
         {/* SERVICES LIST */}
         <section className="max-w-2xl w-full px-4 md:px-0 ">
           <ul className="list  rounded-box shadow-md text-white bg-amber-500/10">
-            <li className="p-4 pb-2 text-xs md:text-lg tracking-wide  text-red-800 font-bold">
+            <li className="p-4 pb-2 text-xs md:text-lg tracking-wide  text-amber-800 font-bold">
               Sunday Services
             </li>
 
@@ -77,7 +77,7 @@ export default function Services() {
 
           {/* Weekday Services */}
           <ul className="list  rounded-box shadow-md mt-8 text-white  bg-amber-500/10">
-            <li className="p-4 pb-2 text-xs md:text-lg  tracking-wide text-red-800 font-bold">
+            <li className="p-4 pb-2 text-xs md:text-lg  tracking-wide text-amber-800 font-bold">
               Weekday Services
             </li>
 
@@ -115,6 +115,37 @@ export default function Services() {
             </li>
           </ul>
         </section>
+        {/* 🔹 Bottom CTA Section */}
+<section className="max-w-2xl w-full px-4 md:px-0 mt-12 text-center text-base-100">
+  <div className="bg-amber-500/40 p-8 rounded-xl backdrop-blur-md shadow-lg">
+    <h3 className="text-xl md:text-2xl font-bold mb-4">
+      Stay Connected With Us
+    </h3>
+
+    <p className="text-sm md:text-base leading-relaxed opacity-90 mb-6">
+      Join our online fellowship, follow our livestreams, or reach out for
+      prayers, inquiries, or spiritual support. We’re here to walk with you
+      in your spiritual journey.
+    </p>
+
+    <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+      <a
+        href="/live"
+        className="btn btn-primary px-8 w-full md:w-auto"
+      >
+        Watch Livestream
+      </a>
+
+      <a
+        href="/contact"
+        className="btn btn-outline btn-primary px-8 w-full md:w-auto"
+      >
+      Plan Your Visit
+      </a>
+    </div>
+  </div>
+</section>
+
       </div>
     </div>
   );
