@@ -52,17 +52,17 @@ function Footer() {
       {/* 🕊️ Resources */}
       <nav>
         <h6 className="footer-title">Resources</h6>
-        <Link to="/live" className="link link-hover">
-          Livestream
+        <Link to="/services" className="link link-hover">
+          Sundays
         </Link>
         <Link to="/giving" className="link link-hover">
           Give Online
         </Link>
         <Link to="/project" className="link link-hover">
-          Volunteer / Projects
+         Projects
         </Link>
         <Link to="/contact" className="link link-hover">
-          Newsletter
+          Contact
         </Link>
       </nav>
     </footer>

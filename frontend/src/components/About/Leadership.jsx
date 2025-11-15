@@ -45,8 +45,8 @@ function Leadership() {
     <section id="leadership" className="bg-base-200 py-20">
       <div className="max-w-6xl mx-auto px-6 md:px-12 text-left">
         {/* Section Header */}
-        <h2 className="text-3xl md:text-5xl font-bold text-primary mb-12 text-center">
-          Our Leadership
+        <h2 className="text-xl md:text-5xl font-bold text-primary mb-12 text-center">
+          Apostolic Faith Church Kiambaa Leadership
         </h2>
 
         {/* Bishop Card */}

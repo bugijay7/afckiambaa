@@ -3,8 +3,8 @@ import { FaChurch, FaUser } from "react-icons/fa6"; // ✅ Using react-icons
 
 function Mission() {
   return (
-    <section id="mission" className="py-16 bg-base-200">
-      <div className="max-w-3xl mx-auto px-6 space-y-8">
+    <section id="mission" className="py-16 bg-secondary">
+      <div className="max-w-3xl mx-auto px-6 space-y-8 b">
         
         {/* Chat Start - Church */}
         <div className="chat chat-start">
@@ -13,7 +13,7 @@ function Mission() {
               <FaChurch className="text-2xl" />
             </div>
           </div>
-          <div className="chat-header font-semibold">
+          <div className="chat-header font-semibold text-primary-content">
             Church Vision
             <time className="text-xs opacity-50 ml-2">Now</time>
           </div>

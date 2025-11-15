@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 
+import heroImg from "../assets/hero3.jpEg"; 
+import yourImportedImage from "../assets/mother.jpEg";
+
+
 export default function Campuses() {
   const [region, setRegion] = useState("All");
 
@@ -462,14 +466,13 @@ export default function Campuses() {
      <div className="bg-base-100 text-base-content">
       {/* 🔹 Hero Section */}
       <section
-        className="relative min-h-[60vh] flex items-center justify-center text-center"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1505692794403-34d4982c8c77?auto=format&fit=crop&w=1600&q=80')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+  className="relative min-h-[60vh] flex items-center justify-center text-center"
+  style={{
+    backgroundImage: `url(${heroImg})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
         <div className="absolute inset-0 bg-neutral/60"></div>
         <div className="relative z-10 px-4 md:px-12 text-neutral-content max-w-4xl">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
@@ -481,12 +484,43 @@ export default function Campuses() {
         </div>
       </section>
 
+     <div className="flex flex-col md:flex-row items-center max-w-6xl mx-auto py-12 px-6 gap-8">
+  {/* 🔹 Text Section */}
+  <section className="flex-1 bg-base-200 p-6 text-center md:text-left ">
+    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary">
+      Our Headquaters – Apostolic Faith Church Bahati
+    </h2>
+    <p className="text-sm md:text-base leading-relaxed mb-6 opacity-90">
+      The Apostolic Faith Church Bahati serves as a vital spiritual hub for believers in Kenya. It provides guidance, 
+      fosters community, and champions the message of holiness and faithfulness, inspiring growth and unity among all members.
+    </p>
+    <a
+      href="https://apostolicfaithkenya.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn btn-primary px-8"
+    >
+      Visit Official Website
+    </a>
+  </section>
+
+  {/* 🔹 Image Section */}
+  <div className="flex-1">
+    <img
+      src={yourImportedImage} // <-- replace this with the imported image variable
+      alt="Apostolic Faith Church Bahati"
+      className="w-full h-auto rounded-lg shadow-md object-cover"
+    />
+  </div>
+</div>
+
+
       {/* 🔹 Intro Section */}
-      <section className="max-w-5xl mx-auto py-12 px-6 text-center">
-        <h2 className="text-2xl md:text-5xl font-bold mb-4">
-          A Growing Fellowship of Faith
+      <section className="max-w-6xl mx-auto py-12 px-6 text-left">
+        <h2 className="text-2xl md:text-5xl font-bold mb-4 mt-5 text-primary">
+          A Growing Fellowship of Faith in Kenya
         </h2>
-        <p className="text-sm md:text-base leading-relaxed max-w-2xl mx-auto opacity-90">
+        <p className="text-sm md:text-base leading-relaxed max-w-6xl mx-auto opacity-90">
           The Apostolic Faith Church in Kenya is a Christ-centered, Bible-believing
           fellowship committed to proclaiming salvation, holiness, and the power
           of the Holy Spirit. From the bustling city of Nairobi to the serene
@@ -539,24 +573,7 @@ export default function Campuses() {
         )}
       </section>
 
-      {/* 🔹 Mother Church Section */}
-      <section className="bg-base-200 py-12 px-6 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">
-          The Mother Church – Apostolic Faith Church Bahati
-        </h2>
-        <p className="text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-6 opacity-90">
-          The Apostolic Faith Church Bahati serves as a vital spiritual hub for believers in Kenya. It provides guidance, 
-          fosters community, and champions the message of holiness and faithfulness, inspiring growth and unity among all members.
-        </p>
-        <a
-          href="https://apostolicfaithkenya.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-primary px-8"
-        >
-          Visit Official Website
-        </a>
-      </section>
+     
     </div>
   );
 }

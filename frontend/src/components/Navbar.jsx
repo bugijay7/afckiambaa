@@ -61,7 +61,7 @@ function Navbar() {
           </details>
         </li>
 
-        <li><Link to="/resources" onClick={handleLinkClick}>Resources</Link></li>
+        <li><Link to="/services" onClick={handleLinkClick}>Services</Link></li>
         <li><Link to="/project" onClick={handleLinkClick}>Project</Link></li>
         <li><Link to="/contact" onClick={handleLinkClick}>Contact</Link></li>
         <li><Link to="/giving" onClick={handleLinkClick}>Donate</Link></li>
@@ -91,7 +91,6 @@ function Navbar() {
         {/* Navbar Center - Desktop */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li><Link to="/events">Events</Link></li>
             <li tabIndex={0}>
               <details>
                 <summary className="cursor-pointer">About</summary>
@@ -106,7 +105,7 @@ function Navbar() {
               </details>
             </li>
             <li><Link to="/project">Projects</Link></li>
-            <li><Link to="/resources">Resources</Link></li>
+            <li><Link to="/services">Services</Link></li>
             <li><Link to="/campuses">AFC near you</Link></li>
             <li><Link to="/contact">Contact</Link></li>
           </ul>

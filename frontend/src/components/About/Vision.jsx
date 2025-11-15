@@ -3,7 +3,7 @@ import { FaEye, FaHandsPraying } from "react-icons/fa6"; // ✅ React icons
 
 function Vision() {
   return (
-    <section id="vision" className="py-16 bg-base-200">
+    <section id="vision" className="py-16 bg-secondary">
       <div className="max-w-3xl mx-auto px-6 space-y-8">
         
         {/* Chat Start - Church Vision */}
@@ -13,9 +13,9 @@ function Vision() {
               <FaEye className="text-2xl" />
             </div>
           </div>
-          <div className="chat-header font-semibold">
+          <div className="chat-header font-semibold text-primary-content">
             AFCKiambaa Vision
-            <time className="text-xs opacity-50 ml-2">Now</time>
+            <time className="text-xs opacity-80 ml-2">Now</time>
           </div>
           <div className="chat-bubble">
             Our Vision is to reflect God’s glory and purpose.

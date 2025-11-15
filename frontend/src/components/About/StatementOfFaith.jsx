@@ -2,25 +2,26 @@ import React from 'react'
 
 function StatementOfFaith() {
   return (
-    <section id="faith" className="py-16 bg-base-100 max-w-[900px] mx-auto mt-20 ">
+    <div className='bg-secondary'>
+    <section id="faith" className="py-16  max-w-[900px] mx-auto mt-20 ">
       <div className="container mx-auto px-6 md:px-12 text-left space-y-6">
         {/* Heading */}
-        <h2 className="text-lg md:text-4xl font-bold text-primary uppercase text-center mb-8">
+        <h2 className="text-lg md:text-4xl font-bold text-white uppercase text-left underline underline-offset-8 mb-8">
           Statement of Faith
         </h2>
 
         {/* Paragraph 1 */}
-        <p className="text-sm md:text-lg leading-relaxed text-white---content">
+        <p className="text-sm md:text-lg leading-relaxed text-white">
           In line with the mission of Christ, Apostolic Faith Church will do
           good everywhere; it claims the right, as it shall see fit, to
           undertake educational, medical, and charitable work for the benefit
-          of all who desire its help, and declares its willingness to cooperate
+          of all who desire its help, and declares its willingness to co-operate
           with government and other agencies in promoting the mental, physical,
           and moral welfare of the whole community.
         </p>
 
         {/* Paragraph 2 */}
-        <p className="text-sm md:text-lg leading-relaxed text-white---content">
+        <p className="text-sm md:text-lg leading-relaxed text-white">
           The church will maintain the core commission of Jesus Christ in all
           projects and missions:{" "}
           <span className="italic">
@@ -31,7 +32,7 @@ function StatementOfFaith() {
         </p>
 
         {/* Paragraph 3 */}
-        <p className="text-sm md:text-lg leading-relaxed text-white---content">
+        <p className="text-sm md:text-lg leading-relaxed text-white">
           We worship God Almighty — All-wise and All-loving — in the Trinity of
           the Father, the Son, and the Holy Spirit; the same in substance, equal
           in power and glory. We adore the Father, infinite in majesty, of whom
@@ -46,7 +47,7 @@ function StatementOfFaith() {
         </p>
 
         {/* Paragraph 4 */}
-        <p className="text-sm md:text-lg leading-relaxed text-white---content">
+        <p className="text-sm md:text-lg leading-relaxed text-white">
           Apostolic Faith Church receives the Word of God contained in the
           Scriptures of the Old and New Testaments — the 66 books — as its
           supreme rule of faith and life. Our unity is derived from the oneness
@@ -56,6 +57,7 @@ function StatementOfFaith() {
         </p>
       </div>
     </section>
+    </div>
   )
 }
 

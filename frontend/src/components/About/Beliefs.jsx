@@ -29,13 +29,13 @@ function Beliefs() {
   ];
 
   return (
-    <section id="beliefs" className="bg-base-100 py-20">
+    <section id="beliefs" className="bg-secondary py-20">
       <div className="max-w-6xl mx-auto px-6 md:px-12 text-left ">
         {/* 🕊️ Header */}
-        <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">
+        <h2 className="text-3xl md:text-5xl font-bold text-primary-content underline underline-offset-8 mb-4">
           Our Beliefs
         </h2>
-        <p className="text-sm md:text-lg text-white---content/70 max-w-2xl mx-auto mb-12">
+        <p className="text-sm md:text-lg text-white  mx-auto mb-12">
           The Apostolic Faith Church Kiambaa stands on the unchanging Word of
           God. These foundational truths guide our faith, worship, and service
           to Christ.

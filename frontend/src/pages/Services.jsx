@@ -1,107 +1,121 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import worshipImg from "../assets/hero1.jpg";
+import { Book, Users, Church } from "lucide-react";
+import worshipImg from "../assets/services.jpeg";
 
-function Services() {
+export default function Services() {
   return (
-    <div className="bg-base-200 text-base-content">
-      {/* 🌅 Hero Section */}
-      <div
-        className="hero md:min-h-[80vh] min-h-[60vh] flex items-center justify-center text-center px-6 md:px-20 relative overflow-hidden"
-        style={{
-          backgroundImage: `url(${worshipImg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50"></div>
-
-        {/* Content */}
-        <div className="relative z-10 text-base-100">
-          <h1 className="text-xl md:text-6xl uppercase mb-4 font-bold">
-            Our Services
-          </h1>
-          <p className="text-xs md:text-xl italic mb-8 max-w-2xl mx-auto leading-relaxed">
-            “Let all things be done decently and in order.” — 1 Corinthians 14:40
+    <div
+      className="bg-base-200 text-base-content min-h-screen"
+      style={{
+        backgroundImage: `url(${worshipImg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="bg-black/50 min-h-screen w-full flex flex-col items-center py-16">
+        {/* ✝️ INTRO SECTION */}
+        <section className="max-w-2xl mx-auto py-16 text-center text-base-100">
+          <p className="text-sm md:text-xl italic leading-relaxed mb-6">
+            At <strong className="underline underline-offset-4 text-primary">Apostolic Faith Church Kiambaa</strong>, our services are designed to
+            bring believers together for worship, fellowship, spiritual growth, and
+            transformation through the power of God’s Word.
           </p>
-          <div className="flex flex-col md:flex-row gap-3 justify-center">
-            <Link to="/live" className="btn btn-primary">
-              Watch Livestream
-            </Link>
-            <Link to="/contact" className="btn btn-secondary">
-              Visit Us
-            </Link>
-          </div>
-        </div>
+        </section>
+
+        {/* SERVICES LIST */}
+        <section className="max-w-2xl w-full px-4 md:px-0 ">
+          <ul className="list  rounded-box shadow-md text-white bg-amber-500/10">
+            <li className="p-4 pb-2 text-xs md:text-lg tracking-wide  text-red-800 font-bold">
+              Sunday Services
+            </li>
+
+            <li className="list-row items-center gap-4 p-4 hover:bg-primary/10 transition-colors rounded-md">
+              <div className="text-4xl font-thin opacity-30 tabular-nums">01</div>
+              <div><Church className="w-10 h-10 text-primary" /></div>
+              <div className="list-col-grow">
+                <div>Youth Service</div>
+                <div className="text-xs uppercase font-semibold opacity-60">
+                  8:00 AM – 9:00 AM
+                </div>
+              </div>
+            </li>
+
+            <li className="list-row items-center gap-4 p-4 hover:bg-primary/10 transition-colors rounded-md">
+              <div className="text-4xl font-thin opacity-30 tabular-nums">02</div>
+              <div><Church className="w-10 h-10 text-primary" /></div>
+              <div className="list-col-grow">
+                <div>Morning Devotion</div>
+                <div className="text-xs uppercase font-semibold opacity-60">
+                  9:30 AM – 10:30 AM
+                </div>
+              </div>
+            </li>
+
+            <li className="list-row items-center gap-4 p-4 hover:bg-primary/10 transition-colors rounded-md">
+              <div className="text-4xl font-thin opacity-30 tabular-nums">03</div>
+              <div><Book className="w-10 h-10 text-primary" /></div>
+              <div className="list-col-grow">
+                <div>Bible Study</div>
+                <div className="text-xs uppercase font-semibold opacity-60">
+                  10:00 AM – 10:30 PM
+                </div>
+              </div>
+            </li>
+
+            <li className="list-row items-center gap-4 p-4 hover:bg-primary/10 transition-colors rounded-md">
+              <div className="text-4xl font-thin opacity-30 tabular-nums">04</div>
+              <div><Users className="w-10 h-10 text-primary" /></div>
+              <div className="list-col-grow">
+                <div>Main Service</div>
+                <div className="text-xs uppercase font-semibold opacity-60">
+                  10:30 AM – 100 PM
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          {/* Weekday Services */}
+          <ul className="list  rounded-box shadow-md mt-8 text-white  bg-amber-500/10">
+            <li className="p-4 pb-2 text-xs md:text-lg  tracking-wide text-red-800 font-bold">
+              Weekday Services
+            </li>
+
+            <li className="list-row items-center gap-4 p-4 hover:bg-primary/10 transition-colors rounded-md">
+              <div className="text-4xl font-thin opacity-30 tabular-nums">01</div>
+              <div><Book className="w-10 h-10 text-primary" /></div>
+              <div className="list-col-grow">
+                <div>Morning Devotion</div>
+                <div className="text-xs uppercase font-semibold opacity-60">
+                  Monday–Friday 5:00 AM – 7:00 AM
+                </div>
+              </div>
+            </li>
+
+            <li className="list-row items-center gap-4 p-4 hover:bg-primary/10 transition-colors rounded-md">
+              <div className="text-4xl font-thin opacity-30 tabular-nums">02</div>
+              <div><Users className="w-10 h-10 text-primary" /></div>
+              <div className="list-col-grow">
+                <div>Evening Fellowship</div>
+                <div className="text-xs uppercase font-semibold opacity-60">
+                  Wednesday 5:00 PM – 6:00 PM
+                </div>
+              </div>
+            </li>
+
+            <li className="list-row items-center gap-4 p-4 hover:bg-primary/10 transition-colors rounded-md">
+              <div className="text-4xl font-thin opacity-30 tabular-nums">03</div>
+              <div><Church className="w-10 h-10 text-primary" /></div>
+              <div className="list-col-grow">
+                <div>Kesha (Night Vigil)</div>
+                <div className="text-xs uppercase font-semibold opacity-60">
+                  Last Friday Overnight
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
       </div>
-
-      {/* ✝️ Intro Section */}
-      <section className="max-w-5xl mx-auto px-6 md:px-12 py-16 text-left md:text-center">
-        <p className="text-sm md:text-xl leading-relaxed">
-          Our services at <strong>Apostolic Faith Church</strong> are
-          conducted to inspire, empower, and transform lives through the
-          Word of God. Each gathering is Christ-centered, purposeful, and
-          designed to nurture spiritual growth and fellowship.
-        </p>
-      </section>
-
-      {/* 🗓️ Weekly and Departmental Services */}
-      <section className="max-w-5xl mx-auto px-6 md:px-12 md:py-12 flex flex-col gap-12">
-        {/* 🕊️ Weekly Services */}
-        <div className="text-left md:text-left">
-          <h2 className="text-xl md:text-3xl font-medium uppercase md:mb-6">
-            Weekly Services
-          </h2>
-          <ul className="space-y-4 text-sm md:text-lg list-none">
-            <li>
-              <strong>Sunday Service:</strong> 
-              <ul className="mt-1 text-xl">
-                <li>Early Service — 8:00 AM – 9:00 AM</li>
-                <li>Main Service — 9:30 AM – 11:00 AM</li>
-                <li>Late Service — 11:30 AM – 1:00 PM</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-
-        {/* 🌸 Departmental Fellowships */}
-        <div className="text-left md:text-left">
-          <h2 className="text-xl md:text-3xl font-medium uppercase mb-6">
-            Weekly & Departmental Fellowships
-          </h2>
-
-          <ul className="space-y-4 text-sm md:text-lg leading-relaxed">
-            <li>
-              <strong>Morning Devotions:</strong> Every morning from 5:30 AM to 7:00 AM
-            </li>
-            <li>
-              <strong>Tuesday Prayer Meeting:</strong> 6:30 PM to 7:30 PM
-            </li>
-            <li>
-              <strong>Thursday Outreach:</strong> 3:00 PM to 4:00 PM
-            </li>
-            <li>
-              <strong>Friday Vigil:</strong> 9:00 PM to midnight
-            </li>
-            <li>
-              <strong>Departmental Fellowships:</strong> Timings vary according to each ministry.
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      {/* 🌅 Footer Accent */}
-      <section className="bg-base-200 py-10 text-center">
-        <h3 className="text-xl md:text-3xl font-medium mb-3">
-          “The God kind of Life.”
-        </h3>
-        <p className="italic pb-20 text-xs md:text-lg">
-          Join us this week and experience the life-transforming power of God.
-        </p>
-      </section>
     </div>
   );
 }
-
-export default Services;
