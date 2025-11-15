@@ -38,8 +38,8 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-base-200">
-      <div className="w-full max-w-md bg-base-100 shadow-xl border border-base-300 p-10">
+    <div className="min-h-screen flex items-center justify-center bg-secondary/70">
+      <div className="w-full max-w-md  shadow-xl border border-base-300 p-10">
         <h2 className="text-2xl font-semibold text-center mb-6 text-primary uppercase tracking-wide">
           AFC Kiambaa Admin Login
         </h2>

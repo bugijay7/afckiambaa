@@ -81,7 +81,7 @@ function Navbar() {
     alt="AFC Kiambaa Logo"
     className="w-10 h-10 md:w-12 md:h-12 object-contain"
   />
-  <span className="text-xs md:text-sm font-semibold">
+  <span className="text-xs md:text-sm font-bold text-primary">
     Apostolic Faith Church - Kiambaa
   </span>
 </Link>

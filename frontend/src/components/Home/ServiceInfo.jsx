@@ -19,7 +19,7 @@ export default function ServiceInfo() {
     {
       icon: <FaCalendarAlt className="text-3xl mb-3 text-primary" />,
       title: "Monthly Services",
-      time: "First Friday of Each Month • 9:00 PM – 5:00 AM",
+      time: "Last Friday of Each Month • 9:00 PM – 5:00 AM",
       desc: "Join us for our all-night prayer and revival meetings as we seek a deeper encounter with God.",
     },
     {

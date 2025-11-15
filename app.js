@@ -21,31 +21,28 @@ const app = express();
 // ✅ Allow requests from your frontend
 app.use(
   cors({
-    origin: ["https://afckiambaa.vercel.app", "http://localhost:5173"],
+    origin: ["https://afckiambaa.vercel.app"],
     credentials: true,
   })
 );
 
 // ✅ Manual CORS headers for static assets
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  const allowedOrigins = [
+    "https://afckiambaa.vercel.app",
+    "http://localhost:5173",
+  ];
+
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.header("Access-Control-Allow-Origin", origin);
+  }
+
   res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.header("Access-Control-Allow-Credentials", "true");
   next();
 });
-
-app.use(express.json());
-
-// ✅ Helmet with relaxed policies
-app.use(
-  helmet({
-    crossOriginResourcePolicy: false,
-    crossOriginEmbedderPolicy: false,
-    crossOriginOpenerPolicy: false,
-    contentSecurityPolicy: false,
-  })
-);
 
 app.use(morgan("dev"));
 

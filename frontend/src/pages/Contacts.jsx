@@ -85,20 +85,20 @@ export default function ContactPage() {
               <h2 className="text-sm md:text-2xl font-medium">Contact Information</h2>
 
               <div className="flex items-center gap-3">
-                <FaMapMarkerAlt className="text-primary text-lg" />
-                <p className="text-sm md:text-2xl">Apostolic Faith Church, Kiambaa, Kiambu County</p>
+                <FaMapMarkerAlt className="text-primary text-sm" />
+                <p className="text-sm md:text-sm">Apostolic Faith Church, Kiambaa, Kiambu County</p>
               </div>
 
               <div className="flex items-center gap-3">
-                <FaPhoneAlt className="text-primary text-lg" />
-                <a href="tel:+254722850169" className="hover:text-primary transition text-sm md:text-2xl">
+                <FaPhoneAlt className="text-primary text-sm" />
+                <a href="tel:+254722850169" className="hover:text-primary transition text-sm md:text-sm">
                   +254 722 850 169
                 </a>
               </div>
 
               <div className="flex items-center gap-3">
-                <FaEnvelope className="text-primary text-lg" />
-                <a href="mailto:kiambaaafc@gmail.com" className="hover:text-primary transition text-sm md:text-2xl">
+                <FaEnvelope className="text-primary text-sm" />
+                <a href="mailto:kiambaaafc@gmail.com" className="hover:text-primary transition text-sm md:text-sm">
                   kiambaaafc@gmail.com
                 </a>
               </div>
@@ -134,7 +134,7 @@ export default function ContactPage() {
             </div>
 
             {/* 📬 Contact Form */}
-            <form onSubmit={handleSubmit} className="bg-primary/20 shadow-xl rounded-2xl p-8 space-y-6 border border-base-300">
+            <form onSubmit={handleSubmit} className=" shadow-xl rounded-2xl p-8 space-y-6 ">
               <div>
                 <label className="block font-medium mb-2 text-white">Name</label>
                 <input
