@@ -63,6 +63,17 @@ app.use("/api/mpesa", mpesaRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api/messages", messageRoutes);
 
+// Cron job to keep Render awake
+cron.schedule("*/5 * * * *", async () => {
+  try {
+    const url = "https://afckiambaa.onrender.com/ping"; // your backend URL
+    await axios.get(url);
+    console.log(`Pinged server at ${new Date().toLocaleTimeString()}`);
+  } catch (error) {
+    console.error("Ping failed:", error.message);
+  }
+}); 
+
 // Global error handler
 app.use((err, req, res, next) => {
   console.error("❌ Server Error:", err.stack);
