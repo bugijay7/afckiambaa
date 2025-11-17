@@ -77,7 +77,7 @@ function CreateEvent() {
   return (
     <div className="flex justify-center items-center min-h-[80vh] bg-base-200 p-6">
       <div className="bg-base-100 shadow-xl rounded-2xl p-8 w-full max-w-lg">
-        <h2 className="text-2xl font-semibold text-center mb-6 text-primary">
+        <h2 className="text-2xl font-semibold text-center mb-6 text-primary pt-30 md:pt-30">
           Create New Event
         </h2>
 
