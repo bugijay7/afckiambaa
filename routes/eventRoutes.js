@@ -1,5 +1,6 @@
 import express from "express";
 import upload from "../middleware/upload.js";
+import { authMiddleware } from "../middleware/authMiddleware.js"; 
 
 import {
   createEvent,
@@ -11,8 +12,8 @@ import {
 
 const router = express.Router();
 
-// 📌 Create event (with image upload)
-router.post("/", upload.single("image"), createEvent);
+// 📌 Create event (authenticated + with image upload)
+router.post("/", authMiddleware, upload.single("image"), createEvent);
 
 // 📌 Get all events
 router.get("/", getEvents);
@@ -20,10 +21,10 @@ router.get("/", getEvents);
 // 📌 Get single event by ID
 router.get("/:id", getEventById);
 
-// 📌 Update event (with optional new image)
-router.put("/:id", upload.single("image"), updateEvent);
+// 📌 Update event (authenticated + new image optional)
+router.put("/:id", authMiddleware, upload.single("image"), updateEvent);
 
-// 📌 Delete event
-router.delete("/:id", deleteEvent);
+// 📌 Delete event (authenticated)
+router.delete("/:id", authMiddleware, deleteEvent);
 
 export default router;
