@@ -30,7 +30,6 @@ app.use(
 app.use((req, res, next) => {
   const allowedOrigins = [
     "https://afckiambaa.vercel.app",
-    "http://localhost:5173",
   ];
 
   const origin = req.headers.origin;
