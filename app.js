@@ -5,8 +5,6 @@ import helmet from "helmet";
 import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/connectDB.js";
-import cron from "node-cron";
-import axios from "axios";
 
 import authRoutes from "./routes/authRoutes.js";
 import mpesaRoutes from "./routes/mpesaRoutes.js";
@@ -69,17 +67,6 @@ app.use("/api/messages", messageRoutes);
 app.use((err, req, res, next) => {
   console.error("❌ Server Error:", err.stack);
   res.status(500).json({ message: "Server Error", error: err.message });
-});
-
-// ⭐⭐ Cron Job to ping Render every 5 minutes ⭐⭐
-cron.schedule("*/5 * * * *", async () => {
-  try {
-    const url = "https://afckiambaa.onrender.com"; 
-    await axios.get(url);
-    console.log("✅ Pinged Render at", new Date().toISOString());
-  } catch (error) {
-    console.error("❌ Failed to ping Render:", error.message);
-  }
 });
 
 const PORT = process.env.PORT || 5000;

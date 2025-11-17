@@ -11,10 +11,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// ⬆ If you prefer a single CLOUDINARY_URL, just keep:
-// cloudinary.config({ cloudinary_url: process.env.CLOUDINARY_URL });
-
-
 // 📌 Helper function to upload from memory buffer
 const uploadToCloudinary = (fileBuffer, folder) => {
   return new Promise((resolve, reject) => {
@@ -25,16 +21,18 @@ const uploadToCloudinary = (fileBuffer, folder) => {
         else resolve(result);
       }
     );
-
     stream.end(fileBuffer);
   });
 };
 
-
 // 🟩 CREATE EVENT
 export const createEvent = async (req, res) => {
   try {
-    const { title, date, description } = req.body;
+    const { title, date, description, location } = req.body;
+
+    if (!title || !date || !description || !location) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
 
     if (!req.file) {
       return res.status(400).json({ message: "Image is required" });
@@ -47,6 +45,7 @@ export const createEvent = async (req, res) => {
       title,
       date,
       description,
+      location,
       image: {
         url: uploadResult.secure_url,
         public_id: uploadResult.public_id,
@@ -54,13 +53,12 @@ export const createEvent = async (req, res) => {
     });
 
     const savedEvent = await newEvent.save();
-    res.status(201).json(savedEvent);
+    res.status(201).json({ message: "Event created successfully", event: savedEvent });
   } catch (error) {
     console.error("Error creating event:", error);
-    res.status(400).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
-
 
 // 🟦 GET ALL EVENTS
 export const getEvents = async (req, res) => {
@@ -71,7 +69,6 @@ export const getEvents = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 
 // 🟨 GET SINGLE EVENT
 export const getEventById = async (req, res) => {
@@ -84,11 +81,10 @@ export const getEventById = async (req, res) => {
   }
 };
 
-
 // 🟧 UPDATE EVENT
 export const updateEvent = async (req, res) => {
   try {
-    const { title, date, description } = req.body;
+    const { title, date, description, location } = req.body;
     const event = await Event.findById(req.params.id);
 
     if (!event) return res.status(404).json({ message: "Event not found" });
@@ -106,17 +102,19 @@ export const updateEvent = async (req, res) => {
       event.image.public_id = uploadResult.public_id;
     }
 
+    // Update fields if provided, else keep existing
     event.title = title || event.title;
     event.date = date || event.date;
     event.description = description || event.description;
+    if (location !== undefined) event.location = location;
 
     const updatedEvent = await event.save();
-    res.json(updatedEvent);
+    res.json({ message: "Event updated successfully", event: updatedEvent });
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    console.error("Error updating event:", error);
+    res.status(500).json({ message: error.message });
   }
 };
-
 
 // 🟥 DELETE EVENT
 export const deleteEvent = async (req, res) => {
@@ -133,6 +131,7 @@ export const deleteEvent = async (req, res) => {
 
     res.json({ message: "Event and image deleted successfully" });
   } catch (error) {
+    console.error("Error deleting event:", error);
     res.status(500).json({ message: error.message });
   }
 };
