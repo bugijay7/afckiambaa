@@ -18,6 +18,10 @@ connectDB();
 
 const app = express();
 
+// ⭐⭐ FIX: Parse JSON Body ⭐⭐
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // ✅ Allow requests from your frontend
 app.use(
   cors({
@@ -45,10 +49,10 @@ app.use((req, res, next) => {
 
 app.use(morgan("dev"));
 
-// ✅ Serve uploads publicly
+// Serve uploads publicly
 app.use("/uploads", express.static("uploads"));
 
-// ✅ Root health check
+// Root health check
 app.get("/", (req, res) => {
   res.status(200).json({ message: "AFC Kiambaa API is running 🚀" });
 });
@@ -59,7 +63,7 @@ app.use("/api/mpesa", mpesaRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api/messages", messageRoutes);
 
-// ✅ Global error handler
+// Global error handler
 app.use((err, req, res, next) => {
   console.error("❌ Server Error:", err.stack);
   res.status(500).json({ message: "Server Error", error: err.message });
