@@ -4,12 +4,17 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// You can store these credentials in MongoDB later if you want multiple admins.
-// For now, let’s keep one admin in environment variables (.env)
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL 
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD ; 
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+const JWT_SECRET = process.env.JWT_SECRET;
 
-// Hash the password once at startup
+// ❗ Validate environment variables
+if (!ADMIN_EMAIL || !ADMIN_PASSWORD || !JWT_SECRET) {
+  console.error("❌ Missing ADMIN_EMAIL, ADMIN_PASSWORD, or JWT_SECRET in env variables.");
+  process.exit(1);
+}
+
+// Hash admin password once
 const hashedPassword = bcrypt.hashSync(ADMIN_PASSWORD, 10);
 
 // 🔐 Admin Login Controller
@@ -22,7 +27,7 @@ export const loginUser = async (req, res) => {
       return res.status(400).json({ message: "Email and password are required." });
     }
 
-    // 2️⃣ Check if email matches admin
+    // 2️⃣ Check admin email
     if (email !== ADMIN_EMAIL) {
       return res.status(401).json({ message: "Invalid credentials." });
     }
@@ -33,22 +38,29 @@ export const loginUser = async (req, res) => {
       return res.status(401).json({ message: "Invalid credentials." });
     }
 
-    // 4️⃣ Generate JWT Token
+    // 4️⃣ Generate JWT token
     const token = jwt.sign(
       { email: ADMIN_EMAIL, role: "admin" },
-      process.env.JWT_SECRET,
+      JWT_SECRET,
       { expiresIn: "1h" }
     );
 
-    // 5️⃣ Respond with token
-    res.json({
+    return res.status(200).json({
       message: "Login successful",
       token,
     });
   } catch (error) {
     console.error("Login error:", error);
-    res.status(500).json({ message: "Server error" });
+    return res.status(500).json({ message: "Server error" });
   }
 };
 
-// Note: In production, ensure to use HTTPS to protect token in transit.
+// 🔐 Logout Controller
+export const logoutUser = (req, res) => {
+  try {
+    return res.status(200).json({ message: "Logged out successfully." });
+  } catch (error) {
+    console.error("Logout error:", error);
+    return res.status(500).json({ message: "Server error" });
+  }
+};
