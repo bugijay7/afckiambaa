@@ -11,7 +11,6 @@ function HomePage() {
     <div>
         <section data-aos="fade-up"><Hero /> </section>
         <section data-aos="zoom-in"> <AboutPreview /></section>
-        <section data-aos="fade-right"><EventPreview /> </section>
          <section data-aos="fade-left"><MissionPreview /> </section>
         <section data-aos="flip-up"><ServiceInfo /> </section>
          <section data-aos="fade-up"><CTASection /> </section>

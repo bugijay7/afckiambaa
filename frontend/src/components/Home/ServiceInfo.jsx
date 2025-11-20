@@ -7,19 +7,19 @@ export default function ServiceInfo() {
     {
       icon: <FaPrayingHands className="text-3xl mb-3 text-primary" />,
       title: "Sunday Service",
-      time: "Every Sunday • 10:00 AM – 12:30 PM",
+      time: "Every Sunday • 10:30 AM – 1:30 PM",
       desc: "A powerful time of worship, teaching, and fellowship where lives are transformed by God’s Word.",
     },
     {
       icon: <FaClock className="text-3xl mb-3 text-primary" />,
       title: "Midweek Fellowship",
-      time: "Every Wednesday • 6:00 PM – 8:00 PM",
+      time: "Every Wednesday • 5:00 PM – 6:30 PM",
       desc: "Recharge your spirit midweek with prayer, study of the Word, and testimonies of faith.",
     },
     {
       icon: <FaCalendarAlt className="text-3xl mb-3 text-primary" />,
       title: "Monthly Services",
-      time: "Last Friday of Each Month • 9:00 PM – 5:00 AM",
+      time: "Last Friday of Each Month • 9:00 PM – 4:00 AM",
       desc: "Join us for our all-night prayer and revival meetings as we seek a deeper encounter with God.",
     },
     {
@@ -31,7 +31,7 @@ export default function ServiceInfo() {
   ];
 
   return (
-    <section className="bg-base-100 py-16 px-6 md:px-20 font-montserrat">
+    <section className="bg-secondary-content py-16 px-6 md:px-20 font-montserrat">
       <div className="text-left max-w-6xl mx-auto mb-12">
         <h2 className="text-xl md:text-4xl font-bold mb-3 text-primary">
           Service Information

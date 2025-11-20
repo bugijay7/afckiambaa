@@ -33,7 +33,7 @@ function Hero() {
   ];
 
   return (
-    <div className="carousel w-full min-h-[80vh]">
+    <div className="carousel w-full min-h-[80vh] relative">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -70,6 +70,16 @@ function Hero() {
           </div>
         </div>
       ))}
+
+      {/* Bottom-left Events button */}
+      <div className="absolute bottom-6 left-6 z-20">
+        <Link
+          to="/events"
+          className="btn btn-outline btn-secondary text-white border-white hover:bg-white hover:text-black transition-all"
+        >
+          View Events
+        </Link>
+      </div>
     </div>
   );
 }
