@@ -4,12 +4,26 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// ✅ Cloudinary config (supports CLOUDINARY_URL or separate keys)
+// ✅ Cloudinary config using CLOUDINARY_URL or keys
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
+
+// 📌 Helper function to upload buffer to Cloudinary
+const uploadToCloudinary = (fileBuffer, folder) => {
+  return new Promise((resolve, reject) => {
+    const stream = cloudinary.uploader.upload_stream(
+      { folder },
+      (error, result) => {
+        if (error) reject(error);
+        else resolve(result);
+      }
+    );
+    stream.end(fileBuffer);
+  });
+};
 
 // 🟩 CREATE EVENT
 export const createEvent = async (req, res) => {
@@ -24,9 +38,8 @@ export const createEvent = async (req, res) => {
       return res.status(400).json({ message: "Image is required" });
     }
 
-    // CloudinaryStorage already uploaded the file, extract the URL and public_id
-    const imageUrl = req.file.path;
-    const publicId = req.file.filename;
+    // Upload image buffer to Cloudinary
+    const uploadResult = await uploadToCloudinary(req.file.buffer, "apostolic_events");
 
     const newEvent = new Event({
       title,
@@ -34,8 +47,8 @@ export const createEvent = async (req, res) => {
       description,
       location,
       image: {
-        url: imageUrl,
-        public_id: publicId,
+        url: uploadResult.secure_url,
+        public_id: uploadResult.public_id,
       },
     });
 
@@ -78,17 +91,18 @@ export const updateEvent = async (req, res) => {
 
     // If user uploaded a new image
     if (req.file) {
-      // Delete the old Cloudinary image
+      // Delete old Cloudinary image
       if (event.image?.public_id) {
         await cloudinary.uploader.destroy(event.image.public_id);
       }
 
-      // CloudinaryStorage already uploaded, extract URL and public_id
-      event.image.url = req.file.path;
-      event.image.public_id = req.file.filename;
+      // Upload new image buffer
+      const uploadResult = await uploadToCloudinary(req.file.buffer, "apostolic_events");
+      event.image.url = uploadResult.secure_url;
+      event.image.public_id = uploadResult.public_id;
     }
 
-    // Update fields if provided, else keep existing
+    // Update fields
     event.title = title || event.title;
     event.date = date || event.date;
     event.description = description || event.description;
