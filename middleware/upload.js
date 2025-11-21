@@ -1,6 +1,14 @@
 import multer from "multer";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
+import cloudinary from "../config/cloudinary.js";
 
-const storage = multer.memoryStorage();  // store in memory before uploading to Cloudinary
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "apostolic_events", // Cloudinary folder name
+    allowed_formats: ["jpg", "png", "jpeg"],
+  },
+});
 
 const upload = multer({ storage });
 

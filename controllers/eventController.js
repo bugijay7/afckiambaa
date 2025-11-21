@@ -11,20 +11,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// 📌 Helper function to upload from memory buffer
-const uploadToCloudinary = (fileBuffer, folder) => {
-  return new Promise((resolve, reject) => {
-    const stream = cloudinary.uploader.upload_stream(
-      { folder },
-      (error, result) => {
-        if (error) reject(error);
-        else resolve(result);
-      }
-    );
-    stream.end(fileBuffer);
-  });
-};
-
 // 🟩 CREATE EVENT
 export const createEvent = async (req, res) => {
   try {
@@ -38,8 +24,9 @@ export const createEvent = async (req, res) => {
       return res.status(400).json({ message: "Image is required" });
     }
 
-    // Upload image buffer to Cloudinary
-    const uploadResult = await uploadToCloudinary(req.file.buffer, "events");
+    // CloudinaryStorage already uploaded the file, extract the URL and public_id
+    const imageUrl = req.file.path;
+    const publicId = req.file.filename;
 
     const newEvent = new Event({
       title,
@@ -47,8 +34,8 @@ export const createEvent = async (req, res) => {
       description,
       location,
       image: {
-        url: uploadResult.secure_url,
-        public_id: uploadResult.public_id,
+        url: imageUrl,
+        public_id: publicId,
       },
     });
 
@@ -96,10 +83,9 @@ export const updateEvent = async (req, res) => {
         await cloudinary.uploader.destroy(event.image.public_id);
       }
 
-      // Upload new image buffer
-      const uploadResult = await uploadToCloudinary(req.file.buffer, "events");
-      event.image.url = uploadResult.secure_url;
-      event.image.public_id = uploadResult.public_id;
+      // CloudinaryStorage already uploaded, extract URL and public_id
+      event.image.url = req.file.path;
+      event.image.public_id = req.file.filename;
     }
 
     // Update fields if provided, else keep existing
