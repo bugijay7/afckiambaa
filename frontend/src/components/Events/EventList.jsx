@@ -13,7 +13,7 @@ export default function EventList() {
     if (!res.ok) throw new Error("Failed to fetch events");
     const data = await res.json();
     console.log("Fetched events:", data); // ✅ Debug line
-    setEvents(data.events || []); // ✅ Fix: use data.events
+    setEvents(data || []); // ✅ Fix: use data.events
   } catch (err) {
     console.error("Error fetching events:", err);
     setError("Unable to load events. Please try again later.");
