@@ -25,7 +25,7 @@ export default function CTASection() {
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link
-            to="/visit"
+            to="/services"
             className="btn bg-secondary border-none text-xs text-primary-content hover:bg-secondary-focus w-full sm:w-auto"
           >
             Plan Your Visit
