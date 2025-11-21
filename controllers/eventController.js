@@ -6,8 +6,11 @@ dotenv.config();
 
 // ✅ Cloudinary config (supports CLOUDINARY_URL or separate keys)
 cloudinary.config({
-  secure: true, // optional: forces https
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
+
 // 🟩 CREATE EVENT
 export const createEvent = async (req, res) => {
   try {
