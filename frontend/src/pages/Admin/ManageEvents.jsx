@@ -10,15 +10,14 @@ function ManageEvents() {
   }, []);
 
   const fetchEvents = async () => {
-  try {
-    const res = await axios.get("https://afckiambaa.onrender.com/api/events");
-    console.log("Events fetched:", res.data);
-    setEvents(res.data.events || []);
-  } catch (err) {
-    console.error("Error fetching events:", err);
-  }
-};
-
+    try {
+      const res = await axios.get("https://afckiambaa.onrender.com/api/events");
+      console.log("Events fetched:", res.data);
+      setEvents(res.data || []); // backend returns array directly
+    } catch (err) {
+      console.error("Error fetching events:", err);
+    }
+  };
 
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this event?")) return;
@@ -48,8 +47,8 @@ function ManageEvents() {
               <div className="flex items-center gap-4">
                 <img
                   src={
-                    event.image
-                      ? `https://afckiambaa.onrender.com/${event.image}`
+                    event.image?.url // ✅ Use event.image.url
+                      ? event.image.url
                       : "https://via.placeholder.com/150"
                   }
                   alt={event.title || "Event"}
