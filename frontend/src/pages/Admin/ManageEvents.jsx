@@ -4,7 +4,6 @@ import axios from "axios";
 function ManageEvents() {
   const [events, setEvents] = useState([]);
 
-  // Fetch events on mount
   useEffect(() => {
     fetchEvents();
   }, []);
@@ -13,7 +12,9 @@ function ManageEvents() {
     try {
       const res = await axios.get("https://afckiambaa.onrender.com/api/events");
       console.log("Events fetched:", res.data);
-      setEvents(res.data || []); // backend returns array directly
+
+      // Backend returns an array, not {events: []}
+      setEvents(res.data || []);
     } catch (err) {
       console.error("Error fetching events:", err);
     }
@@ -21,11 +22,29 @@ function ManageEvents() {
 
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this event?")) return;
+
+    const token = localStorage.getItem("token"); // MUST include token
+
+    if (!token) {
+      alert("You must be logged in to delete events.");
+      return;
+    }
+
     try {
-      await axios.delete(`https://afckiambaa.onrender.com/api/events/${id}`);
+      await axios.delete(
+        `https://afckiambaa.onrender.com/api/events/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // REQUIRED
+          },
+        }
+      );
+
+      // Remove deleted event from UI
       setEvents(events.filter((event) => event._id !== id));
     } catch (err) {
       console.error("Error deleting event:", err);
+      alert("Failed to delete event.");
     }
   };
 
@@ -47,17 +66,19 @@ function ManageEvents() {
               <div className="flex items-center gap-4">
                 <img
                   src={
-                    event.image?.url // ✅ Use event.image.url
+                    event.image?.url
                       ? event.image.url
                       : "https://via.placeholder.com/150"
                   }
                   alt={event.title || "Event"}
                   className="w-28 h-20 object-cover rounded-md"
                 />
+
                 <div>
                   <h3 className="font-medium text-lg text-base-content">
                     {event.title || "Untitled Event"}
                   </h3>
+
                   <p className="text-sm opacity-70">
                     {event.date
                       ? new Date(event.date).toLocaleDateString()
@@ -65,6 +86,7 @@ function ManageEvents() {
                   </p>
                 </div>
               </div>
+
               <div className="flex gap-2 mt-4 md:mt-0">
                 <button
                   onClick={() => handleDelete(event._id)}
