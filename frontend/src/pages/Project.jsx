@@ -107,11 +107,11 @@ export default function Project() {
                 <span className="font-semibold text-primary">
                   Account Number:
                 </span>{" "}
-                1290 2609 40849
+                1234 5678 91011
               </p>
               <p className="text-black">
                 <span className="font-semibold text-primary">Branch:</span>
-                Kenyatta Avenue
+                Kikuyu Town
               </p>
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function Project() {
                 </span>{" "}
                 APOSTOLIC FAITH CHURCH - DVPT
               </p>
-              <p className="mt-2 text-white---content/70">
+              <p className="mt-2 text-black">
                 Every contribution brings us closer to completing the Prayer
                 Center.
               </p>

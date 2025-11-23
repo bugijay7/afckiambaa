@@ -1,12 +1,26 @@
-import React from 'react'
-import Leadership from '../components/About/Leadership'
-import OurStory from '../components/About/ourStory'
-import Mission from '../components/About/Mission'
-import Vision from '../components/About/Vision'
-import Beliefs from '../components/About/Beliefs'
-import StatementOfFaith from '../components/About/StatementOfFaith'
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+import Leadership from '../components/About/Leadership';
+import OurStory from '../components/About/ourStory';
+import Mission from '../components/About/Mission';
+import Vision from '../components/About/Vision';
+import Beliefs from '../components/About/Beliefs';
+import StatementOfFaith from '../components/About/StatementOfFaith';
 
 function About() {
+  const location = useLocation();
+
+  // ⭐ Enable scrolling to hash (#mission, #vision, #leadership, etc.)
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
     <div>
       {/* 🕊️ Our Story */}
@@ -39,7 +53,7 @@ function About() {
         <StatementOfFaith />
       </section>
     </div>
-  )
+  );
 }
 
-export default About
+export default About;

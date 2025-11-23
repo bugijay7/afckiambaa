@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import hero1 from "../../assets/hero1.jpg";
 import hero2 from "../../assets/hero02.jpg";
-import hero3 from "../../assets/hero3.jpg";
+import hero3 from "../../assets/pic6.jpeg";
 
 function Hero() {
   const slides = [
@@ -11,8 +11,8 @@ function Hero() {
       image: hero1,
       title: "Apostolic Faith Church Kiambaa",
       text: "A place where everybody is somebody in the eyes of God",
-      button: "Join Us",
-      link: "/contact",
+      button: "About Us",
+      link: "/about",
     },
     {
       id: 2,
@@ -27,8 +27,8 @@ function Hero() {
       image: hero3,
       title: "Growing Together in Christ",
       text: "Discover how we build strong families and communities rooted in love and faith.",
-      button: "Learn More",
-      link: "/about",
+      button: "Join Us",
+      link: "/contact",
     },
   ];
 

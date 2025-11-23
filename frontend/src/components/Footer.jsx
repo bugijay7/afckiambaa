@@ -27,8 +27,8 @@ function Footer() {
       <nav>
         <h6 className="footer-title">Sunday Services</h6>
         <a className="link link-hover">Youth Service - 8:00 AM - 9:30 AM</a>
-        <a className="link link-hover">Morning Devotion - 9:30 AM - 10:30 AM</a>
-        <a className="link link-hover">Bible Study - 10:00 AM - 10:30 AM</a>
+        <a className="link link-hover">Morning Devotion - 9:30 AM - 10:00 AM</a>
+        <a className="link link-hover">Discipleship Classes - 10:00 AM - 10:30 AM</a>
         <a className="link link-hover">Main Service - 10:30 AM - 1:00 PM</a>
       </nav>
 
@@ -56,7 +56,7 @@ function Footer() {
           Sundays
         </Link>
         <Link to="/giving" className="link link-hover">
-          Give Online
+          Give
         </Link>
         <Link to="/project" className="link link-hover">
          Projects

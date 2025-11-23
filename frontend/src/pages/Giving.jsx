@@ -26,8 +26,8 @@ export default function Giving() {
               <FaUniversity className="text-primary text-3xl mb-4" />
               <h2 className="card-title">Bank Transfer</h2>
               <p><span className="font-bold">Bank:</span> Equity Bank</p>
-              <p><span className="font-bold">Account Number:</span> 1290 2609 40849</p>
-              <p><span className="font-bold">Branch:</span> Kenyatta Avenue</p>
+              <p><span className="font-bold">Account Number:</span> 1234 5678 91011</p>
+              <p><span className="font-bold">Branch:</span> Kikuyu Town</p>
             </div>
           </div>
 
