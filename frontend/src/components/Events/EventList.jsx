@@ -71,7 +71,7 @@ export default function EventList() {
                 className="flex flex-col md:flex-row rounded-xl shadow-md hover:shadow-xl overflow-hidden border border-gray-200 bg-white transition-all duration-300"
               >
                 {/* Image */}
-                <div className="md:w-[260px] md:h-[200px] w-full h-64 flex items-center justify-center bg-white border-r border-gray-200 p-2">
+                <div className="md:w-[260px] md:h-[200px] w-full h-164 flex items-center justify-center bg-white border-r border-gray-200 p-2">
                   <img
                     src={event.image?.url || "/placeholder.png"}
                     alt={event.title}
