@@ -1,6 +1,6 @@
 import React from "react";
 import { Book, Users, Church } from "lucide-react";
-import worshipImg from "../assets/pic5.jpeg";
+import worshipImg from "../assets/hero3.jpeg";
 
 export default function Services() {
   return (
@@ -17,7 +17,7 @@ export default function Services() {
         {/* ✝️ INTRO SECTION */}
         <section className="max-w-2xl mx-auto py-16 text-left text-base-100">
           <p className="text-sm md:text-xl italic leading-relaxed mb-6 px-6">
-            At <strong className="underline underline-offset-4 text-amber-800">Apostolic Faith Church Kiambaa</strong>, our services are designed to
+            At <strong className="underline underline-offset-4 text-primary md:text-2xl">Apostolic Faith Church Kiambaa</strong>, our services are designed to
             bring believers together for worship, fellowship, spiritual growth, and
             transformation through the power of God’s Word.
           </p>
@@ -36,7 +36,7 @@ export default function Services() {
               <div className="list-col-grow">
                 <div>Youth Service</div>
                 <div className="text-xs uppercase font-semibold">
-                  8:00 AM – 9:00 AM
+                  8:30 AM – 9:30 AM
                 </div>
               </div>
             </li>
@@ -47,7 +47,7 @@ export default function Services() {
               <div className="list-col-grow">
                 <div>Morning Devotion</div>
                 <div className="text-xs uppercase font-semibold ">
-                  9:30 AM – 10:30 AM
+                  9:30 AM – 10:00 AM
                 </div>
               </div>
             </li>
@@ -56,7 +56,7 @@ export default function Services() {
               <div className="text-4xl font-thin  tabular-nums">03</div>
               <div><Book className="w-10 h-10 text-primary" /></div>
               <div className="list-col-grow">
-                <div>Bible Study</div>
+                <div>Discipleship Classes</div>
                 <div className="text-xs uppercase font-semibold ">
                   10:00 AM – 10:30 PM
                 </div>
@@ -69,7 +69,7 @@ export default function Services() {
               <div className="list-col-grow">
                 <div>Main Service</div>
                 <div className="text-xs uppercase font-semibold ">
-                  10:30 AM – 100 PM
+                  10:30 AM – 1:00 PM
                 </div>
               </div>
             </li>
@@ -109,7 +109,7 @@ export default function Services() {
               <div className="list-col-grow">
                 <div>Kesha (Night Vigil)</div>
                 <div className="text-xs uppercase font-semibold ">
-                  Last Friday Overnight
+                  Last Friday Of Every Month 9:30 PM – 5:00 AM
                 </div>
               </div>
             </li>
