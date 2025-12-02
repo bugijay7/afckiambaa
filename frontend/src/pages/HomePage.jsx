@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Hero from '../components/Home/Hero'
 import AboutPreview from '../components/Home/AboutPreview'
 import MissionPreview from '../components/Home/MissionPreview'
@@ -9,11 +10,27 @@ import ServiceInfo from '../components/Home/ServiceInfo'
 function HomePage() {
   return (
     <div>
-        <section data-aos="fade-up"><Hero /> </section>
-        <section data-aos="zoom-in"> <AboutPreview /></section>
-         <section data-aos="fade-left"><MissionPreview /> </section>
-        <section data-aos="flip-up"><ServiceInfo /> </section>
-         <section data-aos="fade-up"><CTASection /> </section>
+
+      <section data-aos="fade-up">
+        <Hero />
+      </section>
+
+      <section data-aos="fade-up">
+        <AboutPreview />
+      </section>
+
+      <section data-aos="fade-up">
+        <MissionPreview />
+      </section>
+
+      <section data-aos="fade-up">
+        <ServiceInfo />
+      </section>
+
+      <section data-aos="zoom-in">
+        <CTASection />
+      </section>
+
     </div>
   )
 }

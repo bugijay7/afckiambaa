@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaClock, FaMapMarkerAlt, FaPrayingHands, FaCalendarAlt } from "react-icons/fa";
+import {
+  FaClock,
+  FaMapMarkerAlt,
+  FaPrayingHands,
+  FaCalendarAlt
+} from "react-icons/fa";
+
+import serviceImg from "../../assets/pic6.jpeg"; // <-- your image here
 
 export default function ServiceInfo() {
+
   const services = [
     {
       icon: <FaPrayingHands className="text-3xl mb-3 text-primary" />,
@@ -31,39 +39,61 @@ export default function ServiceInfo() {
   ];
 
   return (
-    <section className="bg-secondary-content py-16 px-6 md:px-20 font-montserrat">
-      <div className="text-left max-w-6xl mx-auto mb-12">
-        <h2 className="text-xl md:text-4xl font-bold mb-3 text-primary">
-          Service Information
-        </h2>
-        <p className="text-base-content/70 md:text-lg text-sm">
-          Experience God’s presence with us every week through vibrant worship, powerful prayer, and sound teaching.
-        </p>
-      </div>
+    <section className="bg-white py-16 px-6 md:px-20 font-montserrat">
+      
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-12">
 
-      {/* Service Cards */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="border border-accent-content p-5 text-left shadow-sm hover:shadow-lg transition-all duration-300"
-          >
-            {service.icon}
-            <h3 className="text-xl font-semibold mb-2 text-base-content">
-              {service.title}
-            </h3>
-            <p className="text-primary text-xs md:text-xl mb-2">{service.time}</p>
-            <p className="text-base-content/80 text-xs md:text-sm">{service.desc}</p>
-          </div>
-        ))}
-      </div>
+        {/* Left Image */}
+        <div className="md:w-1/2" data-aos="fade-right">
+          <img 
+            src={serviceImg} 
+            alt="Service Illustration" 
+            className="rounded-lg w-full object-cover shadow-lg"
+          />
+        </div>
 
-      {/* Learn More Button */}
-      <div className="text-center mt-12">
-        <Link to="/services" className="btn btn-primary px-8 text-white">
-          View Full Schedule
-        </Link>
+        {/* Right Cards */}
+        <div className="md:w-1/2 flex flex-col gap-8">
+
+          {services.map((service, index) => (
+            <div
+              key={index}
+              data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
+              data-aos-delay={index * 150}
+              data-aos-duration="700"
+              className="border border-accent-content p-5 text-left shadow-sm hover:shadow-lg transition-all duration-300 rounded-md bg-white"
+            >
+              {service.icon}
+
+              <h3 className="text-sm font-semibold mb-2 text-base-content">
+                {service.title}
+              </h3>
+
+              <p className="text-primary text-xs  mb-2">
+                {service.time}
+              </p>
+
+              <p className="text-base-content/80 text-xs">
+                {service.desc}
+              </p>
+            </div>
+          ))}
+
+         
+
+        </div>
+
       </div>
+       {/* CTA button */}
+<div className="mt-16 text-center" data-aos="zoom-in" data-aos-delay="700">
+  <Link
+    to="/services"
+    className="btn btn-primary px-8 text-white w-full md:w-auto mx-auto"
+  >
+    View Full Schedule
+  </Link>
+</div>
+
     </section>
   );
 }

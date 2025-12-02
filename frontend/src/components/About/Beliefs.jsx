@@ -29,29 +29,28 @@ function Beliefs() {
   ];
 
   return (
-    <section id="beliefs" className="bg-secondary py-20">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 text-left ">
-        {/* 🕊️ Header */}
-        <h2 className="text-3xl md:text-5xl font-bold text-primary-content underline underline-offset-8 mb-4">
+    <section id="beliefs" className="bg-gradient-to-b from-primary to-secondary py-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
+
+        {/* Header */}
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 underline underline-offset-8 decoration-yellow-400">
           Our Beliefs
         </h2>
-        <p className="text-sm md:text-lg text-white  mx-auto mb-12">
-          The Apostolic Faith Church Kiambaa stands on the unchanging Word of
-          God. These foundational truths guide our faith, worship, and service
-          to Christ.
+        <p className="text-white/90 text-base md:text-lg mb-12 max-w-3xl mx-auto">
+          The Apostolic Faith Church Kiambaa stands on the unchanging Word of God. These foundational truths guide our faith, worship, and service to Christ.
         </p>
 
-        {/* ✝️ Beliefs Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+        {/* Beliefs Grid */}
+        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {beliefs.map((belief, index) => (
             <div
               key={index}
-              className="bg-base-100 shadow-lg p-6 hover:shadow-xl transition-all duration-300"
+              className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-6 hover:scale-105 hover:shadow-2xl transition-all duration-300 text-left"
             >
-              <h3 className="text-xl font-semibold text-primary mb-2">
+              <h3 className="text-xl md:text-2xl font-semibold text-yellow-300 mb-3">
                 {belief.title}
               </h3>
-              <p className="text-white-- text-white---content/80 leading-relaxed">
+              <p className="text-white/80 text-sm md:text-base leading-relaxed">
                 {belief.text}
               </p>
             </div>

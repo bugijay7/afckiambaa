@@ -5,7 +5,7 @@ import img2 from "../../assets/hero3.jpeg"; // bottom image
 
 function AboutPreview() {
   return (
-    <section className="bg-secondary-content text-white---content">
+    <section className="bg-white text-white---content">
       <div className="max-w-[1200px] mx-auto py-12 md:py-20 px-6 md:px-10 grid md:grid-cols-2 gap-10 items-center">
         {/* TEXT */}
         <div className="text-left md:text-left">
@@ -13,7 +13,7 @@ function AboutPreview() {
             Reaching Souls, Developing Winners
           </h2>
 
-          <p className="text-white---content mb-6 md:max-w-[1000px] ml-auto leading-relaxed text-xs md:text-lg">
+          <p className="text-black mb-6 md:max-w-[1000px] ml-auto leading-relaxed text-xs md:text-lg">
             The purpose of our church is rooted in the Holy Scriptures. <br />
             We believe the church is God’s chosen vessel for sharing the truth
             about spiritual matters and advancing His kingdom. <br />

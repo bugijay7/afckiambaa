@@ -1,46 +1,64 @@
 import React from "react";
-import { FaChurch, FaUser } from "react-icons/fa6"; // ✅ Using react-icons
+import missionImg from "../../assets/mission.jpeg";
+import visionImg from "../../assets/vision.jpeg";
 
 function Mission() {
   return (
-    <section id="mission" className="py-16 bg-secondary">
-      <div className="max-w-3xl mx-auto px-6 space-y-8 b">
-        
-        {/* Chat Start - Church */}
-        <div className="chat chat-start">
-          <div className="chat-image avatar">
-            <div className="w-12 rounded-full bg-primary text-primary-content flex items-center justify-center">
-              <FaChurch className="text-2xl" />
-            </div>
+    <section id="mission" className="py-16 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2  place-items-center">
+
+        {/* Mission Card */}
+        <div className="card bg-white w-full max-w-sm shadow-lg hover:shadow-xl transition">
+          <figure className="px-6 pt-6">
+            <img
+              src={missionImg}
+              alt="Mission"
+              className="w-full aspect-[4/5] object-cover rounded-lg"
+            />
+          </figure>
+          <div className="card-body items-start text-left space-y-2">
+            <h2 className="card-title text-amber-700 text-2xl">
+              Church Mission
+            </h2>
+            <p>
+              Our Mission is simple yet powerful:
+              <br />
+              To Win People,
+              <br />
+              To Build Believers,
+              <br />
+              & To Send Workers.
+            </p>
           </div>
-          <div className="chat-header font-semibold text-primary-content">
-            Church Vision
-            <time className="text-xs opacity-50 ml-2">Now</time>
-          </div>
-          <div className="chat-bubble">
-            Our Mission is simple yet powerful.
-          </div>
-          <div className="chat-footer opacity-50">Inspired Message</div>
         </div>
 
-        {/* Chat End - Believer */}
-        <div className="chat chat-end">
-          <div className="chat-image avatar">
-            <div className="w-12 rounded-full bg-secondary text-secondary-content flex items-center justify-center">
-              <FaUser className="text-2xl" />
-            </div>
+        {/* Vision Card */}
+        <div className="card bg-white w-full max-w-sm shadow-lg hover:shadow-xl transition">
+          <figure className="px-6 pt-6">
+            <img
+              src={visionImg}
+              alt="Vision"
+              className="w-full aspect-[4/5] object-cover rounded-lg"
+            />
+          </figure>
+          <div className="card-body items-start text-left space-y-2">
+            <h2 className="card-title text-amber-700 text-2xl">
+              Church Vision
+            </h2>
+            <p>
+              Glorify the Living God,
+            
+              Proclaim His Kingdom,
+              <br />
+              Improve lives,
+              <br />
+              And promote fellowship
+              <br />
+              among church members.
+            </p>
           </div>
-          <div className="chat-header font-semibold">
-            Believer
-            <time className="text-xs opacity-50 ml-2">Now</time>
-          </div>
-          <div className="chat-bubble text-lg leading-relaxed">
-            To Win People, <br />
-            To Build Believers, <br />
-            & To Send Workers.
-          </div>
-          <div className="chat-footer opacity-50">Received with Faith</div>
         </div>
+
       </div>
     </section>
   );

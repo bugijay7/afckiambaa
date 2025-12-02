@@ -4,7 +4,6 @@ import { useLocation } from 'react-router-dom';
 import Leadership from '../components/About/Leadership';
 import OurStory from '../components/About/ourStory';
 import Mission from '../components/About/Mission';
-import Vision from '../components/About/Vision';
 import Beliefs from '../components/About/Beliefs';
 import StatementOfFaith from '../components/About/StatementOfFaith';
 
@@ -33,10 +32,7 @@ function About() {
         <Mission />
       </section>
 
-      {/* 🌅 Vision */}
-      <section id="vision">
-        <Vision />
-      </section>
+     
 
       {/* 📖 Core Beliefs */}
       <section id="beliefs">

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineMenu } from "react-icons/hi";
 import { MdEmail, MdPhone } from "react-icons/md";
-import Logo from "../assets/logo.png";
+import Logo from "../assets/logo1.png";
 
 function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -45,16 +45,17 @@ function Navbar() {
       <ul className="menu p-4 w-full">
         <li><Link to="/" onClick={handleLinkClick}>Home</Link></li>
         <li><Link to="/events" onClick={handleLinkClick}>Events</Link></li>
+        <li><Link to="/ministries"> Ministries</Link></li>
         
         {/* About Nested Menu */}
         <li tabIndex={0}>
           <details className="collapse collapse-arrow border-none bg-base-100">
             <summary className="collapse-title">About</summary>
             <ul className="collapse-content menu p-2">
+              <li><a href="/about#story" onClick={handleLinkClick}>Our Story</a></li>
               <li><a href="/about#mission" onClick={handleLinkClick}>Our Mission</a></li>
               <li><a href="/about#vision" onClick={handleLinkClick}>Our Vision</a></li>
               <li><a href="/about#faith" onClick={handleLinkClick}>Statement of Faith</a></li>
-              <li><a href="/about#story" onClick={handleLinkClick}>Our Story</a></li>
               <li><a href="/about#beliefs" onClick={handleLinkClick}>Core Beliefs</a></li>
               <li><a href="/about#leadership" onClick={handleLinkClick}>Our Leadership</a></li>
             </ul>
@@ -79,7 +80,7 @@ function Navbar() {
   <img
     src={Logo}
     alt="AFC Kiambaa Logo"
-    className="w-10 h-10 md:w-12 md:h-12 object-contain"
+    className="w-10 h-10 md:w-14 md:h-14 object-contain"
   />
   <span className="text-xs md:text-sm font-bold text-primary">
     Apostolic Faith Church - Kiambaa
@@ -90,15 +91,15 @@ function Navbar() {
 
         {/* Navbar Center - Desktop */}
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1  font-bold">
             <li tabIndex={0}>
               <details>
                 <summary className="cursor-pointer">About</summary>
-                <ul className="p-2 bg-base-200 text-white---content w-64 shadow-lg">
+                <ul className="p-2 bg-base-200 text-black w-64 shadow-lg">
+                  <li><a href="/about#story">Our Story</a></li>
                   <li><a href="/about#mission">Our Mission</a></li>
                   <li><a href="/about#vision">Our Vision</a></li>
                   <li><a href="/about#faith">Statement of Faith</a></li>
-                  <li><a href="/about#story">Our Story</a></li>
                   <li><a href="/about#beliefs">Core Beliefs</a></li>
                   <li><a href="/about#leadership">Our Leadership</a></li>
                 </ul>
@@ -106,6 +107,7 @@ function Navbar() {
             </li>
             <li><Link to="/project">Projects</Link></li>
             <li><Link to="/services">Services</Link></li>
+            <li><Link to="/ministries"> Ministries</Link></li>
             <li><Link to="/campuses">AFC near you</Link></li>
             <li><Link to="/contact">Contact</Link></li>
           </ul>

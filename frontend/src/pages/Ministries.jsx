@@ -40,10 +40,10 @@ function Ministries() {
     <div className="bg-base-100 font-montserrat">
       {/* 🔹 Hero Section */}
       <section className="text-left md:text-center px-6 md:px-20  pt-30 md:pt-40 max-w-6xl mx-auto">
-        <h1 className="text-xl md:text-5xl font-bold text-primary mb-2">
+        <h1 className="text-xl md:text-9xl font-bold text-primary mb-2">
           Our Ministries
         </h1>
-        <p className="text-base-content/70 max-w-2xl mx-auto text-sm md:text-sm ">
+        <p className="text-base-content/90 max-w-3xl mx-auto text-sm md:text-sm ">
           At Apostolic Faith Church Kiambaa, we believe in serving God and His
           people through diverse ministries that nurture growth, unity, and
           purpose. Discover how each ministry plays a vital role in the body of
