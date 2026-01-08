@@ -18,7 +18,7 @@ function StatementOfFaith() {
 
         {/* Top Right - First Text */}
         <div className="order-2 md:order-2 flex flex-col justify-start gap-6">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 uppercase mb-4 border-b-4 border-red-400 inline-block pb-2">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 uppercase mb-4 border-b-4 border-red -400 inline-block pb-2">
             Statement of Faith
           </h2>
           <p className="text-gray-700 text-base md:text-lg leading-relaxed">

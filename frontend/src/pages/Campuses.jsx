@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaMapMarkerAlt, FaExternalLinkAlt, FaGlobe, FaSearchLocation } from "react-icons/fa";
 
 import heroImg from "../assets/hero3.jpeg"; 
 import yourImportedImage from "../assets/mother.jpeg";
 
-
 export default function Campuses() {
   const [region, setRegion] = useState("All");
 
-  // 🔹 Church Data
+  // You can populate this list as needed
   const churches = [
    // 🔹 Nairobi Region
 { name: "Apostolic Faith Church Bahati Assembly", region: "Nairobi" },
@@ -453,127 +454,152 @@ export default function Campuses() {
 
   ];
 
-  const regions = ["All","Central", "Nairobi",  "Naivasha", "Laikipia", "Western",
-     "Eastern", "Nyandarua", "Aberdare", "Nakuru", "Uasin Gishu", "Trans Nzoia", 
-     "Nyanza", "Narok", "North Rift East", "North Rift West", "Southern"];
+  const regions = [
+    "All", "Central", "Nairobi", "Naivasha", "Laikipia", "Western",
+    "Eastern", "Nyandarua", "Aberdare", "Nakuru", "Uasin Gishu", "Trans Nzoia", 
+    "Nyanza", "Narok", "North Rift East", "North Rift West", "Southern"
+  ];
 
   const filteredChurches =
     region === "All"
       ? churches
       : churches.filter((church) => church.region === region);
 
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.6 }
+  };
+
   return (
-     <div className="bg-base-100 text-base-content">
-      {/* 🔹 Hero Section */}
-      <section
-  className="relative min-h-[60vh] flex items-center justify-center text-center"
-  style={{
-    backgroundImage: `url(${heroImg})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
->
-        <div className="absolute inset-0 bg-neutral/60"></div>
-        <div className="relative z-10 px-4 md:px-12 text-neutral-content max-w-4xl">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Apostolic Faith Churches in Kenya
-          </h1>
-          <p className="text-sm md:text-lg font-medium leading-relaxed">
-            Reaching Souls, Developing Winners.
-          </p>
+    <div className="bg-white min-h-screen">
+      {/* --- HERO SECTION --- */}
+      <section 
+        className="relative pt-48 pb-32 px-6 flex items-center justify-center text-center bg-cover bg-center"
+        style={{ backgroundImage: `linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url(${heroImg})` }}
+      >
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-4xl">
+          <span className="text-red-500 font-bold tracking-[0.5em] uppercase text-xs mb-4 block">National Presence</span>
+          <h1 className="text-5xl lg:text-7xl font-serif font-bold text-white mb-6">Apostolic Faith in Kenya</h1>
+          <p className="text-blue-100/70 text-xl font-light italic">"Reaching Souls, Developing Winners."</p>
+        </motion.div>
+      </section>
+
+      {/* --- HEADQUARTERS FEATURE --- */}
+      <section className="py-24 px-6 lg:px-24 max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-16 bg-gray-50 rounded-[4rem] p-8 lg:p-16 border border-gray-100 shadow-xl">
+          <motion.div {...fadeInUp} className="lg:w-1/2 space-y-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-900/10 text-blue-900 rounded-full text-xs font-bold uppercase tracking-widest">
+              <FaGlobe className="animate-spin-slow" /> National Headquarters
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-blue-950 leading-tight">
+              Apostolic Faith Church Bahati
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed font-light">
+              The Apostolic Faith Church Bahati serves as a vital spiritual hub for believers in Kenya. 
+              It provides guidance, fosters community, and champions the message of holiness and faithfulness, 
+              inspiring growth and unity among all members.
+            </p>
+            <a 
+              href="https://apostolicfaithkenya.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-blue-950 text-white rounded-2xl font-bold hover:bg-red-600 transition-all group"
+            >
+              Visit Official Website <FaExternalLinkAlt className="text-xs group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </a>
+          </motion.div>
+
+          <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="lg:w-1/2 relative">
+            <div className="absolute -inset-4 bg-red-600/5 rounded-[3.5rem] rotate-3" />
+            <img
+              src={yourImportedImage}
+              alt="Apostolic Faith Church Bahati"
+              className="relative z-10 rounded-[3rem] shadow-2xl w-full h-[450px] object-cover border-8 border-white"
+            />
+          </motion.div>
         </div>
       </section>
 
-     <div className="flex flex-col-reverse md:flex-row items-center max-w-6xl mx-auto py-12 px-6 gap-8">
-  {/* 🔹 Text Section */}
-  <section className="flex-1 bg-base-200 p-6 text-left md:text-left ">
-    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary">
-      Our Headquaters – Apostolic Faith Church Bahati
-    </h2>
-    <p className="text-sm md:text-base leading-relaxed mb-6 opacity-90">
-      The Apostolic Faith Church Bahati serves as a vital spiritual hub for believers in Kenya. It provides guidance, 
-      fosters community, and champions the message of holiness and faithfulness, inspiring growth and unity among all members.
-    </p>
-    <a
-      href="https://apostolicfaithkenya.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="btn btn-primary px-8"
-    >
-      Visit Official Website
-    </a>
-  </section>
+      {/* --- REGIONS FILTER --- */}
+      <section className="py-20 bg-blue-950 px-6 lg:px-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="text-white text-3xl font-serif font-bold mb-4">Find a Church Near You</h3>
+            <p className="text-blue-200/50 text-sm uppercase tracking-widest">Select your region to filter campuses</p>
+          </div>
 
-  {/* 🔹 Image Section */}
-  <div className="flex-1">
-    <img
-      src={yourImportedImage} // <-- replace this with the imported image variable
-      alt="Apostolic Faith Church Bahati"
-      className="w-full h-auto rounded-lg shadow-md object-cover"
-    />
-  </div>
-</div>
-
-
-      {/* 🔹 Intro Section */}
-      <section className="max-w-6xl mx-auto py-12 px-6 text-left">
-        <h2 className="text-2xl md:text-5xl font-bold mb-4 mt-5 text-primary">
-          A Growing Fellowship of Faith in Kenya
-        </h2>
-        <p className="text-sm md:text-base leading-relaxed max-w-6xl mx-auto opacity-90">
-          The Apostolic Faith Church in Kenya is a Christ-centered, Bible-believing
-          fellowship committed to proclaiming salvation, holiness, and the power
-          of the Holy Spirit. From the bustling city of Nairobi to the serene
-          towns of the Rift Valley and the Coast, believers gather in worship,
-          prayer, and outreach as one body under Christ.
-        </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {regions.map((r) => (
+              <button
+                key={r}
+                onClick={() => setRegion(r)}
+                className={`px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 border ${
+                  region === r 
+                    ? "bg-red-600 border-red-600 text-white shadow-lg shadow-red-600/30 scale-105" 
+                    : "bg-white/5 border-white/10 text-blue-100 hover:bg-white/10"
+                }`}
+              >
+                {r}
+              </button>
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* 🔹 Regions Filter */}
-<section className="max-w-6xl mx-auto px-3 pd-5 md:px-6 md:pb-8">
-  <h3 className="text-xl font-semibold mb-4 text-center">Filter by Region</h3>
-  <div className="flex flex-wrap justify-center gap-3 mb-6">
-    {regions
-      .filter((r) => r !== "All") // remove "All"
-      .map((r, index) => (
-        <button
-          key={r}
-          onClick={() => setRegion(r)}
-          className={`px-4 py-2  border ${
-            region === r || (index === 0 && region === "All") // default first button active
-              ? "bg-primary text-white border-primary"
-              : "bg-base-200 text-base-content border-gray-300 hover:bg-base-300"
-          } transition`}
-        >
-          {r}
-        </button>
-      ))}
-  </div>
-</section>
-
-
-      {/* 🔹 Churches List */}
-      <section className="max-w-6xl mx-auto px-6 pb-20">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredChurches.map((church, idx) => (
-            <div
-              key={idx}
-              className="card bg-base-200 hover:bg-base-300 shadow-md transition duration-300 rounded-xl p-3 text-center"
-            >
-              <h4 className="text-sm font-semibold mb-1">{church.name}</h4>
-              <p className="text-xs opacity-70">{church.region}</p>
-            </div>
-          ))}
+      {/* --- CHURCHES LIST --- */}
+      <section className="py-24 px-6 lg:px-24 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="popLayout">
+            {filteredChurches.map((church, idx) => (
+              <motion.div
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                key={idx}
+                className="group p-8 bg-white border border-gray-100 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all border-b-4 hover:border-b-red-600"
+              >
+                <div className="w-12 h-12 bg-gray-50 text-blue-900 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-900 group-hover:text-white transition-colors">
+                  <FaMapMarkerAlt />
+                </div>
+                <h4 className="text-xl font-bold text-blue-950 mb-2">{church.name}</h4>
+                <div className="flex items-center gap-2 text-red-600 font-bold text-xs uppercase tracking-widest">
+                  <span className="w-4 h-[2px] bg-red-600" /> {church.region}
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
         {filteredChurches.length === 0 && (
-          <p className="text-center mt-10 opacity-70">
-            No churches found in this region.
-          </p>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-20">
+            <FaSearchLocation className="mx-auto text-6xl text-gray-200 mb-6" />
+            <p className="text-gray-400 text-xl font-light">No churches found in the <span className="text-blue-900 font-bold">{region}</span> region.</p>
+            <button onClick={() => setRegion("All")} className="mt-4 text-red-600 font-bold underline">Clear Filters</button>
+          </motion.div>
         )}
       </section>
 
-     
+      {/* --- FOOTER CTA --- */}
+      <section className="bg-gray-50 py-20 px-6 text-center">
+        <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-serif font-bold text-blue-950 mb-6">One Body, Many Parts</h2>
+            <p className="text-gray-500 font-light leading-relaxed mb-10">
+                The Apostolic Faith Church in Kenya is a Christ-centered, Bible-believing
+                fellowship committed to proclaiming salvation, holiness, and the power
+                of the Holy Spirit. Join us in any of our locations across the nation.
+            </p>
+            <div className="flex justify-center gap-4">
+                <div className="w-2 h-2 rounded-full bg-red-600" />
+                <div className="w-2 h-2 rounded-full bg-blue-950" />
+                <div className="w-2 h-2 rounded-full bg-red-600" />
+            </div>
+        </div>
+      </section>
     </div>
   );
 }
+
+ 
