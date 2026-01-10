@@ -566,7 +566,7 @@ export default function Campuses() {
                 </div>
                 <h4 className="text-xl font-bold text-blue-950 mb-2">{church.name}</h4>
                 <div className="flex items-center gap-2 text-red-600 font-bold text-xs uppercase tracking-widest">
-                  <span className="w-4 h-[2px] bg-red-600" /> {church.region}
+                  <span className="w-4 h-0.5 bg-red-600" /> {church.region}
                 </div>
               </motion.div>
             ))}
