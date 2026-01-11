@@ -73,7 +73,7 @@ export default function ContactPage() {
           <span className="text-red-500 font-bold tracking-[0.5em] uppercase text-xs mb-4 block">Connect with Us</span>
           <h1 className="text-5xl lg:text-7xl font-serif font-bold text-white mb-6">Get in Touch</h1>
           <p className="text-blue-100/70 text-lg lg:text-xl font-light leading-relaxed max-w-2xl mx-auto">
-            Reach out to Apostolic Faith Church Kiambaa for inquiries, prayer requests, 
+            We'd love to hear from you Reach out to us at Apostolic Faith Church Kiambaa for inquiries, prayer requests, 
             or fellowship opportunities. We are here to walk with you.
           </p>
         </motion.div>
