@@ -96,7 +96,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-bold text-sm uppercase tracking-widest text-red-500 mb-1">Our Location</h4>
-                  <p className="text-blue-100/80 leading-relaxed">Apostolic Faith Church, Kiambaa, Kiambu County</p>
+                  <p className="text-blue-100/80 leading-relaxed">Apostolic Faith Church Kiambaa,Muguga, Kiambu County</p>
                 </div>
               </div>
 
