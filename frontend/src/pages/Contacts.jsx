@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   FaFacebookF,
   FaInstagram,
@@ -11,7 +10,16 @@ import {
   FaPaperPlane,
 } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa6";
-import worshipImg from "../assets/services.jpeg"; 
+
+// Assets
+import worshipImg from "../assets/services.jpeg";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: [0.19, 1, 0.22, 1] }
+};
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -52,136 +60,139 @@ export default function ContactPage() {
       setFeedback("error:Unable to send your message. Please try again later.");
     } finally {
       setLoading(false);
-      // Clear feedback after 5 seconds
       setTimeout(() => setFeedback(""), 5000);
     }
   };
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-blue-950 text-zinc-100 font-sans antialiased">
+      
       {/* --- HERO SECTION --- */}
-      <section className="relative pt-44 pb-20 px-6 bg-blue-950 text-center overflow-hidden">
-        <div className="absolute inset-0 opacity-20 scale-110">
-          <img src={worshipImg} alt="Background" className="w-full h-full object-cover blur-sm" />
+      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src={worshipImg} alt="Hero" className="w-full h-full object-cover opacity-20 grayscale" />
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-950/20 to-blue-950" />
         </div>
-        
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="relative z-10 max-w-4xl mx-auto"
-        >
-          <span className="text-red-500 font-bold tracking-[0.5em] uppercase text-xs mb-4 block">Connect with Us</span>
-          <h1 className="text-5xl lg:text-7xl font-serif font-bold text-white mb-6">Get in Touch</h1>
-          <p className="text-blue-100/70 text-lg lg:text-xl font-light leading-relaxed max-w-2xl mx-auto">
-            We'd love to hear from you Reach out to us at Apostolic Faith Church Kiambaa for inquiries, prayer requests, 
-            or fellowship opportunities. We are here to walk with you.
-          </p>
-        </motion.div>
+
+        <div className="relative z-10 text-center px-6">
+          <motion.span 
+            initial={{ opacity: 0, letterSpacing: "0.2em" }}
+            animate={{ opacity: 1, letterSpacing: "0.5em" }}
+            className="block text-xs font-bold text-red-600 uppercase mb-6"
+          >
+            Connect With Us
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-8xl font-light tracking-tighter"
+          >
+            GET IN <span className="italic font-serif text-amber-500">TOUCH.</span>
+          </motion.h1>
+        </div>
       </section>
 
-      {/* --- CONTACT GRID --- */}
-      <section className="py-24 px-6 lg:px-24 max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row bg-white shadow-2xl rounded-[3rem] overflow-hidden border border-gray-100">
+      {/* --- CONTACT CONTENT --- */}
+      <section className="py-24 container mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-20">
           
-          {/* Left Side: Contact Info */}
-          <div className="lg:w-2/5 bg-blue-950 p-10 lg:p-16 text-white relative">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/10 rounded-bl-full pointer-events-none" />
-            
-            <h2 className="text-3xl font-serif font-bold mb-10">Contact Information</h2>
-            
-            <div className="space-y-8">
-              <div className="flex items-start gap-6 group">
-                <div className="w-12 h-12 shrink-0 bg-white/10 rounded-2xl flex items-center justify-center text-red-500 group-hover:bg-red-600 group-hover:text-white transition-all">
-                  <FaMapMarkerAlt size={20} />
+          {/* LEFT: INFO */}
+          <motion.div {...fadeUp} className="space-y-12">
+            <div>
+              <h2 className="text-xs font-black tracking-[0.4em] uppercase text-red-600 mb-8">Contact Information</h2>
+              <div className="space-y-8">
+                <div className="flex items-start gap-6 group">
+                  <div className="w-12 h-12 border border-zinc-800 flex items-center justify-center group-hover:border-red-600 transition-colors">
+                    <FaMapMarkerAlt className="text-amber-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-[10px] font-bold tracking-widest uppercase text-zinc-500 mb-1">Location</h4>
+                    <p className="text-zinc-300 font-light">Apostolic Faith Church Kiambaa,<br />Muguga, Kiambu County</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-sm uppercase tracking-widest text-red-500 mb-1">Our Location</h4>
-                  <p className="text-blue-100/80 leading-relaxed">Apostolic Faith Church Kiambaa,Muguga, Kiambu County</p>
-                </div>
-              </div>
 
-              <div className="flex items-start gap-6 group">
-                <div className="w-12 h-12 shrink-0 bg-white/10 rounded-2xl flex items-center justify-center text-red-500 group-hover:bg-red-600 group-hover:text-white transition-all">
-                  <FaPhoneAlt size={18} />
+                <div className="flex items-start gap-6 group">
+                  <div className="w-12 h-12 border border-zinc-800 flex items-center justify-center group-hover:border-red-600 transition-colors">
+                    <FaPhoneAlt className="text-amber-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-[10px] font-bold tracking-widest uppercase text-zinc-500 mb-1">Phone</h4>
+                    <a href="tel:+254722850169" className="text-zinc-300 font-light hover:text-white transition-colors">+254 722 850 169</a>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-sm uppercase tracking-widest text-red-500 mb-1">Call Us</h4>
-                  <a href="tel:+254722850169" className="text-xl font-medium hover:text-red-500 transition-colors">+254 722 850 169</a>
-                </div>
-              </div>
 
-              <div className="flex items-start gap-6 group">
-                <div className="w-12 h-12 shrink-0 bg-white/10 rounded-2xl flex items-center justify-center text-red-500 group-hover:bg-red-600 group-hover:text-white transition-all">
-                  <FaEnvelope size={18} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-sm uppercase tracking-widest text-red-500 mb-1">Email Us</h4>
-                  <a href="mailto:kiambaaafc@gmail.com" className="text-blue-100/80 hover:text-red-500 transition-colors">kiambaaafc@gmail.com</a>
+                <div className="flex items-start gap-6 group">
+                  <div className="w-12 h-12 border border-zinc-800 flex items-center justify-center group-hover:border-red-600 transition-colors">
+                    <FaEnvelope className="text-amber-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-[10px] font-bold tracking-widest uppercase text-zinc-500 mb-1">Email</h4>
+                    <a href="mailto:kiambaaafc@gmail.com" className="text-zinc-300 font-light hover:text-white transition-colors">kiambaaafc@gmail.com</a>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="mt-16 pt-10 border-t border-white/10">
-              <h3 className="text-sm font-bold uppercase tracking-[0.3em] mb-8 text-white/40">Follow Our Journey</h3>
-              <div className="flex flex-wrap gap-4">
+            {/* Socials */}
+            <div>
+              <h4 className="text-[10px] font-bold tracking-widest uppercase text-zinc-500 mb-6">Digital Fellowship</h4>
+              <div className="flex gap-4">
                 {[
                   { icon: <FaFacebookF />, link: "https://www.facebook.com/Afckiambaa" },
                   { icon: <FaInstagram />, link: "https://www.instagram.com/afckiambaa_" },
                   { icon: <FaTiktok />, link: "https://www.tiktok.com/@afckiambaa_254" },
                   { icon: <FaYoutube />, link: "https://www.youtube.com/@a.f.c.kiambaa" }
                 ].map((social, idx) => (
-                  <a key={idx} href={social.link} target="_blank" rel="noreferrer" 
-                     className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-red-600 hover:-translate-y-1 transition-all">
+                  <a 
+                    key={idx} 
+                    href={social.link} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="w-12 h-12 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-500"
+                  >
                     {social.icon}
                   </a>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Side: Contact Form */}
-          <div className="lg:w-3/5 p-10 lg:p-16 bg-white">
-            <h3 className="text-3xl font-serif font-bold text-blue-950 mb-2">Send a Message</h3>
-            <p className="text-gray-400 mb-10 font-light">Fields marked with an asterisk (*) are required.</p>
-
+          {/* RIGHT: FORM */}
+          <motion.div {...fadeUp} className="bg-zinc-100 p-10 md:p-16 text-zinc-950">
+            <h2 className="text-3xl font-light tracking-tighter mb-8 italic font-serif">Send a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-blue-950">Full Name *</label>
-                  <input
-                    name="name"
-                    type="text"
-                    placeholder="Enter your name"
-                    className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:bg-white focus:ring-2 focus:ring-blue-900 outline-none transition-all"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-blue-950">Phone Number *</label>
-                  <input
-                    name="phone"
-                    type="tel"
-                    placeholder="+254 7XX XXX XXX"
-                    className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:bg-white focus:ring-2 focus:ring-blue-900 outline-none transition-all"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
+              <div className="relative border-b border-zinc-300 focus-within:border-red-600 transition-colors py-2">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 block">Full Name *</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full bg-transparent outline-none py-2 text-blue-950 font-light"
+                  required
+                />
               </div>
 
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-blue-950">Message *</label>
+              <div className="relative border-b border-zinc-300 focus-within:border-red-600 transition-colors py-2">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 block">Phone Number *</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full bg-transparent outline-none py-2 text-blue-950 font-light"
+                  required
+                />
+              </div>
+
+              <div className="relative border-b border-zinc-300 focus-within:border-red-600 transition-colors py-2">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 block">Your Message *</label>
                 <textarea
                   name="message"
-                  placeholder="How can we help or pray for you?"
-                  rows="5"
-                  className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:bg-white focus:ring-2 focus:ring-blue-900 outline-none transition-all resize-none"
+                  rows="4"
                   value={formData.message}
                   onChange={handleChange}
+                  className="w-full bg-transparent outline-none py-2 text-blue-950 font-light resize-none"
                   required
                 />
               </div>
@@ -189,46 +200,42 @@ export default function ContactPage() {
               <button 
                 type="submit" 
                 disabled={loading}
-                className="w-full lg:w-auto px-12 py-5 bg-blue-900 text-white font-bold rounded-2xl shadow-xl shadow-blue-900/20 hover:bg-red-600 hover:-translate-y-1 active:scale-95 transition-all disabled:opacity-50 flex items-center justify-center gap-3"
+                className="w-full py-6 bg-blue-950 text-white text-xs font-bold uppercase tracking-[0.3em] hover:bg-red-600 transition-all duration-700 flex items-center justify-center gap-4 disabled:bg-zinc-400"
               >
-                {loading ? "Sending..." : (
-                  <>Send Message <FaPaperPlane className="text-xs" /></>
+                {loading ? "Processing..." : (
+                  <>
+                    Send Message <FaPaperPlane className="text-[10px]" />
+                  </>
                 )}
               </button>
 
-              <AnimatePresence>
-                {feedback && (
-                  <motion.div 
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0 }}
-                    className={`p-4 rounded-xl text-sm font-medium ${
-                      feedback.startsWith('success') ? 'bg-green-50 text-green-700 border border-green-100' : 'bg-red-50 text-red-700 border border-red-100'
-                    }`}
-                  >
-                    {feedback.split(':')[1]}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {feedback && (
+                <motion.div 
+                  initial={{ opacity: 0 }} 
+                  animate={{ opacity: 1 }}
+                  className={`text-[10px] font-bold tracking-widest uppercase text-center mt-4 ${
+                    feedback.startsWith("success") ? "text-green-600" : "text-red-600"
+                  }`}
+                >
+                  {feedback.split(":")[1]}
+                </motion.div>
+              )}
             </form>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* --- GOOGLE MAP SECTION --- */}
-      <section className="px-6 lg:px-24 pb-24">
-        <div className="max-w-7xl mx-auto rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
-          <iframe
-            title="Apostolic Faith Church Kiambaa Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.948259404222!2d36.67139267424683!3d-1.2034983355325883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f2390f7572767%3A0x6a05e55720c78864!2sApostolic%20Faith%20Church%20Kiambaa!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske"
-            width="100%"
-            height="500"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
+      {/* --- MAP SECTION --- */}
+      <section className="grayscale hover:grayscale-0 transition-all duration-1000 border-t border-zinc-900">
+        <iframe
+          title="Apostolic Faith Church Kiambaa Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.568471131758!2d36.643666!3d-1.23467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f23cf0e972351%3A0xc3f9904975771f28!2sKiambaa%2C%20Kenya!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske"
+          width="100%"
+          height="500"
+          style={{ border: 0 }}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
       </section>
     </div>
   );
