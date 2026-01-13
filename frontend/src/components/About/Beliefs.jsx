@@ -29,7 +29,7 @@ function Beliefs() {
   ];
 
   return (
-    <section id="beliefs" className="bg-gradient-to-b from-primary to-secondary py-20">
+    <section id="beliefs" className="bg-linear-to-b from-primary to-secondary py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
 
         {/* Header */}
