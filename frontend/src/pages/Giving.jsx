@@ -2,137 +2,153 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaMobileAlt, FaUniversity, FaHeart, FaQuoteRight } from "react-icons/fa";
 
+const fadeUp = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: [0.19, 1, 0.22, 1] }
+};
+
 export default function Giving() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.6 }
-  };
-
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-blue-950 text-zinc-100 font-sans antialiased">
+      
       {/* --- HERO SECTION --- */}
-      {/* Reduced padding: pt-32 (mobile) vs pt-44 (desktop) */}
-      <section className="relative pt-32 pb-16 md:pt-44 md:pb-24 px-6 bg-blue-950 overflow-hidden text-center">
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(#fff_1px,transparent_1px)] bg-size-[40px_40px]" />
-        </div>
-
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="relative z-10 max-w-4xl mx-auto"
-        >
-          {/* Smaller icon for mobile */}
-          <div className="w-12 h-12 md:w-16 md:h-16 bg-red-600 rounded-2xl flex items-center justify-center text-white text-xl md:text-2xl mx-auto mb-6 md:mb-8 shadow-2xl shadow-red-600/40">
-            <FaHeart />
-          </div>
-          <span className="text-red-500 font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase text-[10px] md:text-xs mb-3 block">
-            Faithful Stewardship
-          </span>
-          {/* Responsive Heading: text-3xl (mobile) vs text-7xl (desktop) */}
-          <h1 className="text-3xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-4 md:mb-8 leading-tight">
-            Support the Ministry
-          </h1>
-          <p className="text-blue-100/70 text-base md:text-lg lg:text-xl max-w-2xl mx-auto font-light leading-relaxed px-2">
-            Your generous giving helps Apostolic Faith Church Kiambaa continue spreading
-            the gospel and building strong foundations of faith.
-          </p>
-        </motion.div>
-      </section>
-
-      {/* --- SCRIPTURE QUOTE --- */}
-      <section className="py-8 md:py-12 bg-gray-50 border-y border-gray-100">
-        <div className="max-w-4xl mx-auto px-6 text-center italic text-gray-500 font-serif flex items-center justify-center gap-3 md:gap-4">
-          <FaQuoteRight className="text-red-600/20 text-2xl md:text-4xl shrink-0" />
-          <p className="text-lg md:text-xl leading-snug">
-            "Each of you should give what you have decided in your heart to give..." 
-            <span className="block text-[10px] font-bold uppercase tracking-widest mt-2 text-blue-950">— 2 Corinthians 9:7</span>
-          </p>
-        </div>
-      </section>
-
-      {/* --- GIVING OPTIONS GRID --- */}
-      <section className="py-12 md:py-24 px-6 lg:px-24 max-w-7xl mx-auto">
-        {/* Gap reduced for mobile to save scroll space */}
-        <div className="grid lg:grid-cols-2 gap-6 md:gap-12">
-          
-          {/* Bank Transfer Card */}
+      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden border-b border-zinc-900">
+        <div className="relative z-10 text-center px-6">
           <motion.div 
-            {...fadeInUp}
-            className="group relative bg-white p-6 md:p-10 lg:p-16 rounded-[2rem] md:rounded-[3.5rem] shadow-xl border border-gray-100 transition-all"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="flex justify-center mb-8"
           >
-            <div className="w-12 h-12 bg-blue-50 text-blue-900 rounded-xl flex items-center justify-center text-xl mb-6">
-              <FaUniversity />
+            <FaHeart className="text-red-600 text-3xl" />
+          </motion.div>
+          
+          <motion.span 
+            initial={{ opacity: 0, letterSpacing: "0.2em" }}
+            animate={{ opacity: 1, letterSpacing: "0.5em" }}
+            className="block text-xs font-bold text-amber-500 uppercase mb-6"
+          >
+            Faithful Stewardship
+          </motion.span>
+          
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-8xl font-light tracking-tighter leading-tight"
+          >
+            SUPPORT THE <br /> 
+            <span className="italic font-serif text-zinc-400">MINISTRY.</span>
+          </motion.h1>
+          
+          <motion.p {...fadeUp} className="max-w-xl mx-auto mt-8 text-zinc-500 font-light text-lg">
+            Your generous giving helps Apostolic Faith Church Kiambaa continue
+            spreading the gospel and building strong foundations of faith.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* --- SCRIPTURE QUOTE (EDITORIAL STYLE) --- */}
+      <section className="py-32 bg-zinc-100 text-zinc-950">
+        <div className="container mx-auto px-6 text-center relative">
+          <FaQuoteRight className="text-zinc-200 text-9xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50" />
+          <motion.div {...fadeUp} className="relative z-10 max-w-3xl mx-auto">
+            <p className="text-2xl md:text-4xl font-light leading-relaxed italic font-serif text-blue-950">
+              "Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."
+            </p>
+            <div className="mt-8 flex items-center justify-center gap-4">
+              <div className="h-[1px] w-12 bg-red-600" />
+              <span className="text-xs font-black uppercase tracking-[0.3em]">2 Corinthians 9:7</span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-serif font-bold text-blue-950 mb-4 md:mb-6">Bank Transfer</h2>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* --- GIVING OPTIONS --- */}
+      <section className="py-32 container mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-0 border border-zinc-900">
+          
+          {/* BANK TRANSFER */}
+          <motion.div 
+            {...fadeUp}
+            whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.02)" }}
+            className="p-12 md:p-20 border-b lg:border-b-0 lg:border-r border-zinc-900 group"
+          >
+            <FaUniversity className="text-red-600 text-4xl mb-10 group-hover:scale-110 transition-transform duration-500" />
+            <h2 className="text-3xl font-light tracking-tighter mb-12">BANK <span className="italic font-serif text-amber-500">TRANSFER</span></h2>
             
-            <div className="space-y-4 md:space-y-6">
-              <div className="flex flex-col border-b border-gray-50 pb-2 md:pb-4">
-                <span className="text-[9px] md:text-[10px] font-bold text-red-600 uppercase tracking-widest mb-1">Institution</span>
-                <span className="text-lg md:text-xl font-medium text-gray-800">Equity Bank</span>
-              </div>
-              <div className="flex flex-col border-b border-gray-50 pb-2 md:pb-4">
-                <span className="text-[9px] md:text-[10px] font-bold text-red-600 uppercase tracking-widest mb-1">Account Number</span>
-                <span className="text-xl md:text-2xl font-mono font-bold text-blue-950 tracking-tighter">1234 5678 91011</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[9px] md:text-[10px] font-bold text-red-600 uppercase tracking-widest mb-1">Branch</span>
-                <span className="text-lg md:text-xl font-medium text-gray-800">Kikuyu Town</span>
-              </div>
+            <div className="space-y-6">
+              {[
+                { label: "Institution", value: "Equity Bank" },
+                { label: "Account Number", value: "1234 5678 91011", mono: true },
+                { label: "Branch", value: "Kikuyu Town" }
+              ].map((item, idx) => (
+                <div key={idx} className="flex justify-between items-end border-b border-zinc-900 pb-4">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">{item.label}</span>
+                  <span className={`text-sm tracking-wide ${item.mono ? 'font-mono text-amber-500' : 'font-light'}`}>
+                    {item.value}
+                  </span>
+                </div>
+              ))}
             </div>
           </motion.div>
 
-          {/* M-Pesa Card */}
+          {/* M-PESA */}
           <motion.div 
-            {...fadeInUp}
-            transition={{ delay: 0.1 }}
-            className="group relative bg-blue-950 p-6 md:p-10 lg:p-16 rounded-[2rem] md:rounded-[3.5rem] shadow-2xl text-white overflow-hidden"
+            {...fadeUp}
+            whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.02)" }}
+            className="p-12 md:p-20 group"
           >
-            <div className="w-12 h-12 bg-white/10 text-white rounded-xl flex items-center justify-center text-xl mb-6">
-              <FaMobileAlt />
-            </div>
-            <h2 className="text-2xl md:text-3xl font-serif font-bold mb-4 md:mb-6">M-Pesa Giving</h2>
+            <FaMobileAlt className="text-red-600 text-4xl mb-10 group-hover:scale-110 transition-transform duration-500" />
+            <h2 className="text-3xl font-light tracking-tighter mb-12">M-PESA <span className="italic font-serif text-amber-500">GIVING</span></h2>
             
-            <div className="space-y-4 md:space-y-6 relative z-10">
-              <div className="flex flex-col border-b border-white/10 pb-2 md:pb-4">
-                <span className="text-[9px] md:text-[10px] font-bold text-red-500 uppercase tracking-widest mb-1">Paybill Number</span>
-                <span className="text-2xl md:text-3xl font-bold">202273</span>
-              </div>
-              <div className="flex flex-col border-b border-white/10 pb-2 md:pb-4">
-                <span className="text-[9px] md:text-[10px] font-bold text-red-500 uppercase tracking-widest mb-1">Account Name</span>
-                <span className="text-lg md:text-xl font-medium">Offering / Tithe</span>
-              </div>
-              <p className="text-blue-100/50 text-xs md:text-sm font-light leading-relaxed italic">
-                Use your M-Pesa app or Sim Tool Kit to send your contribution securely. 
-              </p>
+            <div className="space-y-6 mb-10">
+              {[
+                { label: "Paybill Number", value: "202273", mono: true },
+                { label: "Account Name", value: "Offering / Tithe" }
+              ].map((item, idx) => (
+                <div key={idx} className="flex justify-between items-end border-b border-zinc-900 pb-4">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">{item.label}</span>
+                  <span className={`text-sm tracking-wide ${item.mono ? 'font-mono text-amber-500' : 'font-light'}`}>
+                    {item.value}
+                  </span>
+                </div>
+              ))}
             </div>
+            <p className="text-xs text-zinc-500 font-light leading-relaxed tracking-wide italic">
+              Use your M-Pesa app or Sim Tool Kit to send your contribution securely.
+            </p>
           </motion.div>
         </div>
       </section>
 
       {/* --- DIASPORA & HELPLINE --- */}
-      <section className="pb-16 md:pb-24 px-6 lg:px-24 max-w-5xl mx-auto">
+      <section className="pb-32 container mx-auto px-6">
         <motion.div 
-          {...fadeInUp}
-          className="bg-gray-900 rounded-4xl md:rounded-[3rem] p-8 md:p-16 text-center relative overflow-hidden"
+          {...fadeUp}
+          className="bg-red-600 p-12 md:p-20 text-center relative overflow-hidden"
         >
           <div className="relative z-10">
-            <h3 className="text-xl md:text-3xl font-serif font-bold text-white mb-4">Diaspora Giving & Helpline</h3>
-            <p className="text-gray-400 text-base md:text-lg font-light mb-8 leading-relaxed">
-              For help from outside Kenya, contact us:
+            <h3 className="text-xs font-black uppercase tracking-[0.5em] mb-6 text-white/80">Global Support</h3>
+            <h2 className="text-3xl md:text-5xl font-light tracking-tighter mb-8">DIASPORA GIVING & HELPLINE</h2>
+            <p className="text-white/70 font-light mb-10 max-w-lg mx-auto">
+              For brothers and sisters supporting us from outside Kenya, reach out directly for tailored giving instructions.
             </p>
-            
-            <div className="inline-block px-6 py-4 md:px-10 md:py-6 bg-white/5 border border-white/10 rounded-2xl mb-6">
-                <span className="text-[9px] font-bold text-red-500 uppercase tracking-widest block mb-2">Direct Phone / M-Pesa</span>
-                <a href="tel:+254722850169" className="text-xl md:text-4xl font-mono font-bold text-white">
-                    +254 722 850 169
-                </a>
+            <div className="inline-block border-b-2 border-white pb-2">
+              <span className="text-[10px] font-bold uppercase tracking-widest mr-4">Direct WhatsApp</span>
+              <a href="tel:+254722850169" className="text-xl font-bold tracking-tighter hover:text-amber-500 transition-colors">
+                +254 722 850 169
+              </a>
             </div>
+          </div>
+          
+          {/* Subtle background text */}
+          <div className="absolute -bottom-10 -right-10 text-9xl font-black text-white/5 select-none pointer-events-none">
+            GLOBAL
           </div>
         </motion.div>
       </section>
+
     </div>
   );
 }

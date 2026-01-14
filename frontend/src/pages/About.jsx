@@ -72,7 +72,7 @@ function About() {
       {/* --- STATEMENT OF FAITH (UNABRIDGED) --- */}
       <section id="faith" className="py-32 px-6 container mx-auto">
         <div className="grid lg:grid-cols-12 gap-16 border-b border-zinc-900 pb-24">
-          <div className="lg:col-span-4 sticky top-40 h-fit">
+          <div className="lg:col-span-4 lg:sticky top-40 h-fit">
             <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-8">Statement of Faith</h2>
             <p className="text-3xl font-light italic text-amber-400 leading-tight">
               Our core tenets, held in reverence and practiced in truth.
