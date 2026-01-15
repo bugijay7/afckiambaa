@@ -131,7 +131,7 @@ function HomePage() {
       <section className="py-32 container mx-auto px-6">
         <div className="mb-24 flex justify-between items-end">
           <h2 className="text-4xl font-light tracking-tighter italic text-amber-500">Gatherings</h2>
-          <span className="text-[10px] font-bold tracking-[0.5em] uppercase text-zinc-200">Kiambaa • Kenya</span>
+          <span className="text-[10px] font-bold tracking-[0.5em] uppercase text-zinc-200">Kiambaa • Muguga</span>
         </div>
 
         <div className="space-y-0">
@@ -143,13 +143,13 @@ function HomePage() {
               className="group flex flex-col md:flex-row justify-between py-12 border-b border-zinc-900 hover:border-red-600 transition-all duration-500 cursor-default"
             >
               <div className="flex gap-8 items-center mb-4 md:mb-0">
-                <span className="text-zinc-800 text-4xl font-light group-hover:text-red-900 transition-colors">0{index + 1}</span>
+                <span className="text-zinc-100 text-4xl font-light group-hover:text-red-900 transition-colors">0{index + 1}</span>
                 <div>
                   <h4 className="text-xl font-bold tracking-tight">{service.title}</h4>
                   <p className="text-xs font-bold text-red-600 tracking-widest mt-1 uppercase">{service.time}</p>
                 </div>
               </div>
-              <p className="md:w-1/3 text-zinc-500 font-light text-sm leading-relaxed group-hover:text-zinc-300 transition-colors">
+              <p className="md:w-1/3 text-zinc-100 font-light text-sm leading-relaxed group-hover:text-zinc-300 transition-colors">
                 {service.desc}
               </p>
             </motion.div>
@@ -159,16 +159,16 @@ function HomePage() {
 
       {/* --- CINEMATIC CTA --- */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden border-t border-zinc-900">
-        <img src={ctaBg} alt="Church" className="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" />
+        <img src={ctaBg} alt="Church" className="absolute inset-0 w-full h-full object-cover opacity-10 grayscale" />
         <div className="relative z-10 text-center px-6">
-          <h2 className="text-4xl md:text-7xl font-light tracking-tighter mb-12">
-            A SPIRITUAL FAMILY <br /> <span className="text-zinc-600">SINCE THE BEGINNING.</span>
+          <h2 className="text-4xl md:text-7xl font-bold tracking-tighter mb-12">
+            A SPIRITUAL FAMILY <br /> <span className="text-amber-600">SINCE THE BEGINNING.</span>
           </h2>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <Link to="/services" className="px-16 py-6 bg-red-600 text-white text-xs font-bold uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-700 rounded-none">
               Plan Visit
             </Link>
-            <Link to="/contact" className="px-16 py-6 border border-zinc-700 text-white text-xs font-bold uppercase tracking-[0.3em] hover:border-white transition-all duration-700 rounded-none">
+            <Link to="/contact" className="px-16 py-6 border border-zinc-100 text-white text-xs font-bold uppercase tracking-[0.3em] hover:border-white transition-all duration-700 rounded-none">
               Contact
             </Link>
           </div>
