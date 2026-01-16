@@ -131,7 +131,7 @@ function HomePage() {
       <section className="py-32 container mx-auto px-6">
         <div className="mb-24 flex justify-between items-end">
           <h2 className="text-4xl font-light tracking-tighter italic text-amber-500">Gatherings</h2>
-          <span className="text-[10px] font-bold tracking-[0.5em] uppercase text-zinc-200">Kiambaa • Muguga</span>
+          <span className="text-[10px] font-bold tracking-[0.5em] uppercase text-zinc-200">Kiambaa • Muguga, Kiambu County, Kenya</span>
         </div>
 
         <div className="space-y-0">
