@@ -27,6 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
+
 // ✅ CORS setup
 const allowedOrigins = ["https://afckiambaa.vercel.app"];
 app.use(cors({
@@ -68,7 +69,7 @@ app.get("/ping", (req, res) => {
 // ⭐ Cron job to keep Render awake
 cron.schedule("*/5 * * * *", async () => {
   try {
-    const response = await axios.get("https://afckiambaa.onrender.com/ping");
+    const response = await axios.get("https://afckiambaa-4bt6.onrender.com/ping");
     console.log(`Pinged server at ${new Date().toLocaleTimeString()}:`, response.data);
   } catch (error) {
     console.error("Ping failed:", error.message);

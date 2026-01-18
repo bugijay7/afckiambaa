@@ -10,7 +10,7 @@ function ManageEvents() {
 
   const fetchEvents = async () => {
     try {
-      const res = await axios.get("https://afckiambaa.onrender.com/api/events");
+      const res = await axios.get("https://afckiambaa-4bt6.onrender.com/api/events");
       console.log("Events fetched:", res.data);
 
       // Backend returns an array, not {events: []}
@@ -32,7 +32,7 @@ function ManageEvents() {
 
     try {
       await axios.delete(
-        `https://afckiambaa.onrender.com/api/events/${id}`,
+        `https://afckiambaa-4bt6.onrender.com/api/events/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`, // REQUIRED

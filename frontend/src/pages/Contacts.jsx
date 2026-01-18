@@ -42,7 +42,7 @@ export default function ContactPage() {
     setFeedback("");
 
     try {
-      const res = await fetch("https://afckiambaa.onrender.com/api/messages", {
+      const res = await fetch("https://afckiambaa-4bt6.onrender.com/api/messages", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

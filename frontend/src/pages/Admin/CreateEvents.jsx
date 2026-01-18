@@ -56,7 +56,7 @@ function CreateEvent() {
       formData.append("image", image);
 
       // ✅ Correct API endpoint
-      await axios.post("https://afckiambaa.onrender.com/api/events", formData, {
+      await axios.post("https://afckiambaa-4bt6.onrender.com/api/events", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
