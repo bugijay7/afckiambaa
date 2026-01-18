@@ -11,7 +11,7 @@ const fadeUp = {
 
 export default function Giving() {
   return (
-    <div className="bg-blue-950 text-zinc-100 font-sans antialiased">
+    <div className="bg-amber-950 text-zinc-100 font-sans antialiased">
       
       {/* --- HERO SECTION --- */}
       <section className="relative h-[80vh] flex items-center justify-center overflow-hidden border-b border-zinc-900">
@@ -38,10 +38,10 @@ export default function Giving() {
             className="text-5xl md:text-8xl font-light tracking-tighter leading-tight"
           >
             SUPPORT THE <br /> 
-            <span className="italic font-serif text-zinc-400">MINISTRY.</span>
+            <span className="italic font-serif text-zinc-150">MINISTRY.</span>
           </motion.h1>
           
-          <motion.p {...fadeUp} className="max-w-xl mx-auto mt-8 text-zinc-500 font-light text-lg">
+          <motion.p {...fadeUp} className="max-w-xl mx-auto mt-8 text-zinc-100 font-light text-lg">
             Your generous giving helps Apostolic Faith Church Kiambaa continue
             spreading the gospel and building strong foundations of faith.
           </motion.p>
@@ -66,7 +66,7 @@ export default function Giving() {
 
       {/* --- GIVING OPTIONS --- */}
       <section className="py-32 container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-0 border border-zinc-900">
+        <div className="grid lg:grid-cols-2 gap-0 border border-zinc-100">
           
           {/* BANK TRANSFER */}
           <motion.div 
@@ -75,16 +75,16 @@ export default function Giving() {
             className="p-12 md:p-20 border-b lg:border-b-0 lg:border-r border-zinc-900 group"
           >
             <FaUniversity className="text-red-600 text-4xl mb-10 group-hover:scale-110 transition-transform duration-500" />
-            <h2 className="text-3xl font-light tracking-tighter mb-12">BANK <span className="italic font-serif text-amber-500">TRANSFER</span></h2>
+            <h2 className="text-3xl font-light tracking-tighter mb-12 uppercase">pay with <span className="italic font-serif text-amber-500">Equity</span></h2>
             
             <div className="space-y-6">
               {[
-                { label: "Institution", value: "Equity Bank" },
-                { label: "Account Number", value: "1234 5678 91011", mono: true },
-                { label: "Branch", value: "Kikuyu Town" }
+                { label: "Paybill Number", value: "247247", mono: true },
+                { label: "Account Number", value: "850890" },
+                { label: "Account Name", value: "Offering / Tithe" },
               ].map((item, idx) => (
-                <div key={idx} className="flex justify-between items-end border-b border-zinc-900 pb-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">{item.label}</span>
+                <div key={idx} className="flex justify-between items-end border-b border-zinc-100 pb-4">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-100">{item.label}</span>
                   <span className={`text-sm tracking-wide ${item.mono ? 'font-mono text-amber-500' : 'font-light'}`}>
                     {item.value}
                   </span>
@@ -105,17 +105,17 @@ export default function Giving() {
             <div className="space-y-6 mb-10">
               {[
                 { label: "Paybill Number", value: "202273", mono: true },
-                { label: "Account Name", value: "Offering / Tithe" }
+                { label: "Account Name", value: "Offering / Tithe" },
               ].map((item, idx) => (
-                <div key={idx} className="flex justify-between items-end border-b border-zinc-900 pb-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">{item.label}</span>
+                <div key={idx} className="flex justify-between items-end border-b border-zinc-100 pb-4">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-100">{item.label}</span>
                   <span className={`text-sm tracking-wide ${item.mono ? 'font-mono text-amber-500' : 'font-light'}`}>
                     {item.value}
                   </span>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-zinc-500 font-light leading-relaxed tracking-wide italic">
+            <p className="text-xs text-zinc-100 font-light leading-relaxed tracking-wide italic">
               Use your M-Pesa app or Sim Tool Kit to send your contribution securely.
             </p>
           </motion.div>

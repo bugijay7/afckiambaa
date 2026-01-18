@@ -9,8 +9,10 @@ import {
 
 import missionImg from "../assets/mission.jpeg";
 import visionImg from "../assets/vision.jpeg";
-import logo from "../assets/logo.png";
-import rev from "../assets/bishop.png";
+import leadership1 from "../assets/pastor.jpg";
+import leadership2 from "../assets/elders.jpg";
+import leadership3 from "../assets/secretarys.jpg";
+import rev from "../assets/bishops.jpg";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -31,11 +33,26 @@ function About() {
     { title: "SECOND COMING", icon: <FaCrown />, text: "Jesus Christ will return soon — first for His church, then to reign on earth." },
   ];
 
-  const leaders = [
-    { name: "PST. LOREM IPSUM", title: "LEAD PASTOR", img: logo, bio: "Committed to teaching the Word with clarity and power." },
-    { name: "BRO. LOREN IPSUME", title: "YOUTH COORDINATOR", img: logo, bio: "Empowering the next generation to walk in divine purpose." },
-    { name: "ELDER LOREN IPSUM", title: "CHURCH ADMINISTRATOR", img: logo, bio: "Ensuring the house of God operates with excellence." },
-  ];
+ const leaders = [
+  {
+    name: "PST. LOREM IPSUM",
+    title: "ASSISTANT PASTOR",
+    img: leadership1,
+    bio: "Committed to teaching the Word with clarity and power.",
+  },
+  {
+    name: "BRO. LOREN IPSUME",
+    title: "YOUTH COORDINATOR",
+    img: leadership2,
+    bio: "Empowering the next generation to walk in divine purpose.",
+  },
+  {
+    name: "ELDER LOREN IPSUM",
+    title: "CHURCH sECREATARY",
+    img: leadership3,
+    bio: "Ensuring the house of God operates with excellence.",
+  },
+];
 
   useEffect(() => {
     if (location.hash) {
@@ -47,10 +64,10 @@ function About() {
   }, [location]);
 
   return (
-    <div className="bg-zinc-100 text-blue-800 font-sans selection:bg-red-900">
+    <div className="bg-blue-100 text-blue-800 font-sans selection:bg-red-900">
       
       {/* --- PAGE HEADER --- */}
-      <section className="pt-40 pb-20 border-b border-zinc-900 px-6">
+      <section className="pt-40 pb-20 border-b border-zinc-900 px-6 h-[50vh] flex items-center">
         <div className="container mx-auto">
           <motion.span 
             initial={{ opacity: 0, x: -20 }}
@@ -174,7 +191,7 @@ function About() {
 
           <div className="grid lg:grid-cols-12 gap-16 items-center mb-32">
             <div className="lg:col-span-5 hover:grayscale-0 transition-all duration-700 overflow-hidden">
-               <img src={rev} alt="Bishop Peter Mungai" className="w-full h-full object-cover" />
+               <img src={rev} alt="Bishop Peter Mungai" className="w-full h-full object-cover border border-zinc-800" />
             </div>
             <div className="lg:col-span-7">
               <h3 className="text-5xl font-light tracking-tighter mb-2">Bishop Peter Mungai</h3>
@@ -188,7 +205,7 @@ function About() {
           <div className="grid md:grid-cols-3 gap-12">
             {leaders.map((leader, index) => (
               <motion.div key={index} {...fadeUp} className="group">
-                <div className="w-full aspect-square mb-8 bg-zinc-900 overflow-hidden">
+                <div className="w-full aspect-square mb-8 bg-zinc-900 overflow-hidden border border-zinc-800">
                   <img src={leader.img} alt={leader.name} className="w-full h-full object-cover group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700" />
                 </div>
                 <h3 className="text-lg font-bold tracking-tight mb-1">{leader.name}</h3>

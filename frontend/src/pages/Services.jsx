@@ -32,33 +32,33 @@ export default function Services() {
   const weekdayServices = [
     { id: "01", title: "Morning Devotion", day: "Mon – Fri", time: "5:00 AM – 7:00 AM", icon: <Book /> },
     { id: "02", title: "Evening Fellowship", day: "Wednesday", time: "5:00 PM – 6:30 PM", icon: <Users /> },
-    { id: "03", title: "Kesha (Night Vigil)", day: "Last Friday", time: "9:30 PM – 5:00 AM", icon: <Church /> },
+    { id: "03", title: "Kesha (Night Vigil)", day: "Last Friday of every month", time: "9:30 PM – 5:00 AM", icon: <Church /> },
   ];
 
   return (
     <div className="bg-blue-950 text-zinc-100 font-sans antialiased">
       
       {/* --- HERO SECTION --- */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[100vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={worshipImg} alt="Worship" className="w-full h-full object-cover opacity-30 grayscale" />
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-transparent to-blue-950/50" />
+          <img src={worshipImg} alt="Worship" className="w-full h-full object-cover opacity-50 grayscale" />
+          <div className="absolute inset-0 bg-gradient-to-t from-amber-500 via-transparent to-blue-950/50" />
         </div>
         
         <div className="relative z-10 text-center px-6">
           <motion.span 
             initial={{ opacity: 0, letterSpacing: "0.1em" }}
             animate={{ opacity: 1, letterSpacing: "0.5em" }}
-            className="block text-xs font-bold text-red-600 uppercase mb-6"
+            className="block text-xs md:text-sm font-bold text-red-600 uppercase mb-6"
           >
             Worship Experience
           </motion.span>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-light tracking-tighter"
+            className="text-5xl md:text-8xl font-bold tracking-tighter"
           >
-            SERVICE <span className="italic font-serif text-amber-500">TIMES.</span>
+            SERVICE <span className="italic font-bold font-serif text-amber-500">TIMES.</span>
           </motion.h1>
         </div>
       </section>
@@ -67,7 +67,7 @@ export default function Services() {
       <section className="py-32 container mx-auto px-6">
         <div className="mb-20">
           <h2 className="text-xs font-black tracking-[0.4em] uppercase text-red-600 mb-4">Sunday Worship</h2>
-          <p className="text-zinc-500 font-light tracking-widest text-sm">MAIN SANCTUARY • KIAMBAA</p>
+          <p className="text-zinc-100 font-light tracking-widest text-sm">MAIN SANCTUARY • KIAMBAA</p>
         </div>
 
         <div className="border-t border-zinc-900">
@@ -78,7 +78,7 @@ export default function Services() {
               className="group flex flex-col md:flex-row items-start md:items-center justify-between py-12 border-b border-zinc-900 hover:border-amber-500 transition-colors duration-500"
             >
               <div className="flex items-center gap-10 mb-6 md:mb-0">
-                <span className="text-4xl font-light text-zinc-800 group-hover:text-red-600 transition-colors">
+                <span className="text-4xl font-light text-zinc-100 group-hover:text-red-600 transition-colors">
                   {service.id}
                 </span>
                 <div>
@@ -88,8 +88,8 @@ export default function Services() {
               </div>
 
               <div className="flex items-center gap-4 text-zinc-400 group-hover:text-zinc-100 transition-colors">
-                <Clock size={18} className="text-red-600" />
-                <span className="text-sm font-medium tracking-widest">{service.time}</span>
+                <Clock size={20} className="text-red-600" />
+                <span className="text-sm font-medium tracking-widest text-zinc-100">{service.time}</span>
                 <ChevronRight className="opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0" />
               </div>
             </motion.div>
@@ -135,27 +135,20 @@ export default function Services() {
       <section className="py-32 container mx-auto px-6 text-center">
         <motion.div {...fadeUp} className="max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-light tracking-tighter mb-8">STAY <span className="italic font-serif text-amber-500">CONNECTED.</span></h2>
-          <p className="text-zinc-500 font-light text-lg mb-12">
+          <p className="text-zinc-100 font-light text-lg mb-12">
             Join our online fellowship, follow our livestreams, or reach out for prayers and spiritual support.
           </p>
 
           <div className="flex flex-col md:flex-row justify-center gap-6 mb-20">
-            <a href="/live" className="flex items-center justify-center gap-3 px-10 py-5 bg-red-600 text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-500">
-              <PlayCircle size={18} /> Watch Livestream
+            <a href="https://www.youtube.com/@a.f.c.kiambaa" className="flex items-center justify-center gap-3 px-10 py-5 bg-red-600 text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-500">
+              <PlayCircle size={18} /> Catch Up on Sermons
             </a>
             <a href="/contact" className="px-10 py-5 border border-zinc-700 text-white text-xs font-bold uppercase tracking-[0.2em] hover:border-white transition-all duration-500">
               Plan Your Visit
             </a>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-md mx-auto">
-            <button className="flex items-center justify-center gap-2 text-[10px] font-bold uppercase tracking-widest text-zinc-500 hover:text-amber-500 transition-colors">
-              <Calendar size={14} /> Google Calendar
-            </button>
-            <button className="flex items-center justify-center gap-2 text-[10px] font-bold uppercase tracking-widest text-zinc-500 hover:text-amber-500 transition-colors">
-              <MapPin size={14} /> Get Directions
-            </button>
-          </div>
+          
         </motion.div>
       </section>
 

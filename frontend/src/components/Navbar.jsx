@@ -133,7 +133,13 @@ function Navbar() {
               {["Home", ...navLinks.map(l => l.name), "About", "Giving"].map((item) => (
                 <li key={item}>
                   <Link 
-                    to={item === "Home" ? "/" : `/${item.toLowerCase()}`} 
+                   to={
+  item === "Home"
+    ? "/"
+    : item === "Projects"
+    ? "/project"
+    : `/${item.toLowerCase()}`
+}
                     onClick={handleLinkClick} 
                     className="text-3xl font-black uppercase tracking-tighter text-white hover:text-red-500 transition-colors"
                   >

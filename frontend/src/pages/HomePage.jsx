@@ -64,7 +64,7 @@ function HomePage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-5xl md:text-8xl font-light tracking-tighter leading-none mb-10"
+            className="text-5xl md:text-8xl font-bold tracking-tighter leading-none mb-10"
           >
             EVERYBODY IS <br /> <span className="italic font-serif text-amber-500">SOMEBODY.</span>
           </motion.h1>
@@ -131,7 +131,7 @@ function HomePage() {
       <section className="py-32 container mx-auto px-6">
         <div className="mb-24 flex justify-between items-end">
           <h2 className="text-4xl font-light tracking-tighter italic text-amber-500">Gatherings</h2>
-          <span className="text-[10px] font-bold tracking-[0.5em] uppercase text-zinc-200">Kiambaa • Muguga, Kiambu County, Kenya</span>
+          <span className="text-[10px] font-bold tracking-[0.5em] uppercase text-zinc-200">Kiambaa • Muguga</span>
         </div>
 
         <div className="space-y-0">
