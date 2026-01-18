@@ -75,10 +75,10 @@ function HomePage() {
             className="flex flex-col md:flex-row gap-0 justify-center items-center"
           >
             <Link to="/about" className="w-full md:w-auto px-12 py-5 bg-zinc-100 text-zinc-950 text-xs font-bold uppercase tracking-widest hover:bg-red-600 hover:text-white transition-all duration-500 rounded-none">
-              The Ministry
+              Who We Are
             </Link>
-            <Link to="/contact" className="w-full md:w-auto px-12 py-5 bg-transparent border border-zinc-100 text-white text-xs font-bold uppercase tracking-widest hover:bg-zinc-100 hover:text-zinc-950 transition-all duration-500 rounded-none">
-              Join Us
+            <Link to="/events" className="w-full md:w-auto px-12 py-5 bg-transparent border border-zinc-100 text-white text-xs font-bold uppercase tracking-widest hover:bg-zinc-100 hover:text-zinc-950 transition-all duration-500 rounded-none">
+              View Events
             </Link>
           </motion.div>
         </div>
