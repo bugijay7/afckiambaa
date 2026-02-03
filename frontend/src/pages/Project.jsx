@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { FaBuilding, FaUsers, FaPray, FaLandmark, FaMobileAlt, FaUniversity } from "react-icons/fa";
 
 // Assets
 import prayerCenter1 from "../assets/pic20.jpeg";
@@ -7,149 +7,170 @@ import prayerCenter2 from "../assets/pic19.jpeg";
 import prayerCenter3 from "../assets/pic18.jpeg";
 import prayerCenter4 from "../assets/pic10.jpeg";
 
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.19, 1, 0.22, 1] }
-};
-
 export default function Project() {
   const images = [prayerCenter1, prayerCenter2, prayerCenter3, prayerCenter4];
 
   return (
-    <div className="bg-blue-950 text-zinc-100 font-sans antialiased selection:bg-red-900">
+    <div className="bg-white text-black font-sans selection:bg-amber-100">
       
-      {/* --- CINEMATIC HERO --- */}
-      <section className="relative h-[100vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img src={prayerCenter1} alt="Background" className="w-full h-full object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-amber-950/20 via-blue-950/60 to-amber-450" />
+      {/* 1. HERO SECTION */}
+      <section className="relative min-h-screen flex items-center">
+        <div className="absolute right-0 top-0 w-full lg:w-2/3 h-full overflow-hidden">
+          <img 
+            src={prayerCenter1} 
+            alt="Background" 
+            className="w-full h-full object-cover  transition-all duration-1000" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/40 to-transparent"></div>
         </div>
-        
-        <div className="relative z-10 text-center px-6">
-          <motion.span 
-            initial={{ opacity: 0, tracking: "0.1em" }}
-            animate={{ opacity: 1, letterSpacing: "0.4em" }}
-            className="block text-[10px] md:text-xs font-bold text-red-600 uppercase mb-6"
-          >
+
+        <div className="relative z-10 px-6 md:px-20 max-w-7xl mx-auto w-full">
+          <span className="text-red-600 uppercase tracking-[0.6em] text-xs font-black mb-6 block">
             Kingdom Expansion
-          </motion.span>
-          <motion.h1 
-            {...fadeUp}
-            className="text-3xl md:text-7xl font-bold tracking-tighter leading-[0.9] mb-8"
-          >
-            THE KIAMBAA <br />
-            <span className="italic font-serif text-amber-500">PRAYER CENTER</span>
-          </motion.h1>
-          <motion.p {...fadeUp} className="max-w-md mx-auto text-sm md:text-base font-light text-zinc-300 leading-relaxed">
-            Building a lasting place of prayer, renewal, and spiritual growth for generations to come.
-          </motion.p>
+          </span>
+          <h1 className="text-6xl md:text-9xl font-black text-black uppercase tracking-tighter leading-[0.85] mb-8">
+            THE <span className="text-amber-600">KIAMBAA</span> <br /> 
+            <span className="text-blue-600 italic">PRAYER</span> CENTER
+          </h1>
+          <p className="max-w-md text-zinc-900 text-lg font-light leading-relaxed border-l-4 border-amber-500 pl-6">
+            Building a lasting place of prayer, renewal, and spiritual growth for generations to come. 
+            A sanctuary rising in the heart of Kiambu.
+          </p>
         </div>
       </section>
 
-      {/* --- STAGGERED PROGRESS GALLERY --- */}
-      <section className="py-24 overflow-hidden">
-        <div className="container mx-auto px-6">
+      {/* 2. GALLERY / PROGRESS */}
+      <section className="py-32 px-6 bg-zinc-900 text-white">
+        <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
             <div>
-              <h3 className="text-xs font-bold text-red-600 tracking-[0.4em] uppercase mb-4">Current Progress</h3>
-              <p className="text-3xl font-light italic text-amber-500">Est. Completion 2026</p>
+              <h3 className="text-5xl font-black uppercase tracking-tighter">Current Progress</h3>
+              <p className="text-amber-500 font-mono tracking-widest text-sm mt-2 uppercase">Est. Completion 2026</p>
             </div>
+            <div className="h-px bg-zinc-700 flex-grow mx-10 hidden md:block mb-4"></div>
+            <p className="text-red-500 uppercase text-xs tracking-widest font-black">Architecture • Faith • Legacy</p>
           </div>
 
-          {/* Mobile: Horizontal Snap Scroll | Desktop: Staggered Grid */}
-          <div className="flex md:grid md:grid-cols-4 gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8 md:pb-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {images.map((img, idx) => (
-              <motion.div 
-                key={idx}
-                {...fadeUp}
-                transition={{ delay: idx * 0.1 }}
-                className={`min-w-[80vw] md:min-w-full snap-center group relative overflow-hidden ${
-                  idx % 2 !== 0 ? "md:mt-20" : "" // Stagger effect on desktop
-                }`}
-              >
-                <div className="aspect-[3/4] overflow-hidden">
-                  <img 
-                    src={img} 
-                    alt={`Progress ${idx + 1}`} 
-                    className="w-full h-full object-cover  group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
-                  />
+              <div key={idx} className="group relative overflow-hidden bg-black aspect-[4/5]">
+                <img
+                  src={img}
+                  alt={`Progress ${idx + 1}`}
+                  className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+                />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-blue-600/40 backdrop-blur-sm cursor-pointer">
+                  <span className="border-2 border-white px-6 py-2 text-[10px] font-black uppercase tracking-widest">
+                    View Detail
+                  </span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-white border-b border-red-600">View Detail</span>
-                </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* --- ABOUT SECTION (Split Layout) --- */}
-      <section className="py-32 bg-zinc-100 text-blue-950">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <motion.div {...fadeUp}>
-              <h3 className="text-xs font-bold text-red-600 tracking-[0.4em] uppercase mb-8">The Vision</h3>
-              <p className="text-4xl md:text-5xl font-light tracking-tighter leading-none mb-12">
-                A dedicated sanctuary for <span className="italic font-serif">fasting, reflection</span> and divine encounter.
-              </p>
-              
-              <div className="space-y-8 border-l-2 border-red-600 pl-8">
-                <div>
-                  <h5 className="font-bold uppercase tracking-widest text-sm">Leadership Hub</h5>
-                  <p className="font-light text-zinc-600">Equipping the next generation of ministry leaders.</p>
+      {/* 3. ABOUT THE VISION */}
+      <section className="py-32 px-6 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="order-2 lg:order-1">
+            <h3 className="text-xs font-black tracking-[0.4em] text-red-600 uppercase mb-8 flex items-center gap-4">
+              <span className="w-12 h-1 bg-red-600"></span> The Vision
+            </h3>
+            <p className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-tight mb-12">
+              A dedicated sanctuary for <span className="text-blue-600">fasting, reflection</span> and divine encounter.
+            </p>
+
+            <div className="grid sm:grid-cols-2 gap-10">
+              <div className="space-y-4">
+                <div className="w-12 h-12 bg-zinc-100 flex items-center justify-center text-amber-600 text-xl">
+                  <FaUsers />
                 </div>
-                <div>
-                  <h5 className="font-bold uppercase tracking-widest text-sm">Conference Space</h5>
-                  <p className="font-light text-zinc-600">Hosting Youth & Women regional conventions.</p>
-                </div>
+                <h5 className="font-black uppercase tracking-widest text-sm">Leadership Hub</h5>
+                <p className="text-zinc-900 text-sm leading-relaxed">Equipping the next generation of ministry leaders through specialized training environments.</p>
               </div>
-            </motion.div>
 
-            <motion.div {...fadeUp} className="relative">
-              <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-amber-500 z-10" />
-              <img src={prayerCenter1} alt="Vision" className="w-full h-[600px] object-cover" />
-              <p className="mt-4 text-[10px] font-black tracking-[0.5em] uppercase text-zinc-400">100% Kingdom Investment</p>
-            </motion.div>
+              <div className="space-y-4">
+                <div className="w-12 h-12 bg-zinc-100 flex items-center justify-center text-blue-600 text-xl">
+                  <FaBuilding />
+                </div>
+                <h5 className="font-black uppercase tracking-widest text-sm">Conference Space</h5>
+                <p className="text-zinc-900 text-sm leading-relaxed">Hosting Youth & Women regional conventions in a state-of-the-art facility.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="order-1 lg:order-2 relative">
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-amber-500/10 -z-10 rounded-full blur-3xl"></div>
+            <img
+              src={prayerCenter1}
+              alt="Vision"
+              className="w-full h-[600px] object-cover shadow-2xl"
+            />
+            <div className="absolute bottom-0 right-0 bg-white p-8">
+              <p className="text-[10px] font-extrabold tracking-[0.3em] uppercase text-amber-600 mb-2">Investment Status</p>
+              <p className="text-2xl font-black text-red-600 italic">100% Kingdom Focused</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* --- SUPPORT / DONATION CARDS --- */}
-      <section className="py-32 container mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-4">HOW TO SUPPORT</h2>
-          <p className="text-zinc-400 font-light tracking-widest text-xs uppercase">Your contribution brings us closer to completion</p>
+      {/* 4. SUPPORT SECTION */}
+      <section className="bg-zinc-50 py-32 px-6">
+        <div className="max-w-5xl mx-auto text-center mb-20">
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6">How to <span className="text-blue-600">Support</span></h2>
+          <p className="text-zinc-500 font-light tracking-widest uppercase text-sm">Your contribution brings us closer to completion</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-0 border border-zinc-800">
-          <div className="p-12 md:p-20 border-b md:border-b-0 md:border-r border-zinc-800 bg-amber-600 transition-colors duration-700 group">
-            <h4 className=" font-bold tracking-widest text-xs mb-8 text-blue-950 transition-colors">BANK TRANSFER</h4>
-            <div className="space-y-2 text-xl font-light">
-              <p className="text-blue-450 font-bold">Bank: <span className="text-white">Equity Bank</span></p>
-              <p className="text-blue-450 text-sm md:text-xl font-bold">Acc: <span className="text-white">1234 5678 91011</span></p>
-              <p className=" text-blue-450 text-sm md:text-xl font-bold">Branch: <span className="text-white">Kikuyu Town</span></p>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+          {/* Bank Card */}
+          <div className="bg-blue-500 p-12 border-t-4 border-red-600 shadow-xl hover:shadow-2xl transition-all group">
+            <FaUniversity className="text-4xl text-zinc-200 mb-8 group-hover:text-red-600 transition-colors" />
+            <h4 className="text-2xl font-black uppercase tracking-tight mb-8">Bank Transfer</h4>
+            <div className="space-y-4 text-zinc-900 font-mono text-sm">
+              <div className="flex justify-between border-b border-zinc-100 pb-2">
+                <span>BANK</span>
+                <span className="font-black text-black text-right">EQUITY BANK</span>
+              </div>
+              <div className="flex justify-between border-b border-zinc-100 pb-2">
+                <span>ACCOUNT</span>
+                <span className="font-black text-black text-right underline decoration-amber-500">1234 5678 91011</span>
+              </div>
+              <div className="flex justify-between">
+                <span>BRANCH</span>
+                <span className="font-black text-black text-right">KIKUYU TOWN</span>
+              </div>
             </div>
           </div>
 
-          <div className="p-12 md:p-20 bg-zinc-100 transition-colors duration-700 group">
-            <h4 className="text-red-600 font-bold tracking-widest text-xs mb-8">M-PESA GIVING</h4>
-            <div className="space-y-2 text-xl font-light text-blue-950">
-              <p className= "text-zinc-600 font-bold">Paybill: <span className="text-blue-950 font-bold">247247</span></p>
-              <p className="text-zinc-600 font-bold">Account: <span className="text-blue-950 font-bold">733227</span></p>
-              <p className="text-xs font-bold tracking-widest mt-4 text-red-600">AFC - DVPT</p>
+          {/* M-Pesa Card */}
+          <div className="bg-amber-500 p-12 border-t-4 border-blue-600 shadow-xl hover:shadow-2xl transition-all group">
+            <FaMobileAlt className="text-4xl text-zinc-200 mb-8 group-hover:text-blue-600 transition-colors" />
+            <h4 className="text-2xl font-black uppercase tracking-tight mb-8">M-Pesa Giving</h4>
+            <div className="space-y-4 text-zinc-900 font-mono text-sm">
+              <div className="flex justify-between border-b border-zinc-100 pb-2">
+                <span>PAYBILL</span>
+                <span className="font-black text-black text-right">247247</span>
+              </div>
+              <div className="flex justify-between border-b border-zinc-100 pb-2">
+                <span>ACCOUNT</span>
+                <span className="font-black text-black text-right underline decoration-amber-500">733227</span>
+              </div>
+              <div className="flex justify-between">
+                <span>NAME</span>
+                <span className="font-black text-black text-right uppercase">AFC - DVPT</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <motion.p 
-          {...fadeUp}
-          className="max-w-2xl mx-auto text-center mt-20 text-xl font-light italic text-zinc-100"
-        >
-          “Every contribution, no matter the size, helps us raise a sanctuary for generations.”
-        </motion.p>
+        <div className="max-w-3xl mx-auto mt-20 text-center">
+          <p className="text-xl italic font-light text-zinc-900 leading-relaxed">
+            “Every contribution, no matter the size, helps us raise a sanctuary for generations.”
+          </p>
+        </div>
       </section>
+
     </div>
   );
 }

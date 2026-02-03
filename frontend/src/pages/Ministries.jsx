@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { FaChevronRight } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 // Images
 import youthImg from "../assets/ministries/youth.webp";
@@ -9,13 +8,6 @@ import childrenImg from "../assets/ministries/children.webp";
 import womenImg from "../assets/ministries/women.webp";
 import menImg from "../assets/ministries/men.webp";
 import worshipImg from "../assets/ministries/worship.webp";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.19, 1, 0.22, 1] }
-};
 
 function Ministries() {
   const ministries = [
@@ -47,121 +39,107 @@ function Ministries() {
   ];
 
   return (
-    <div className="bg-blue-950 text-zinc-100 font-sans antialiased">
+    <div className="bg-white text-black selection:bg-blue-100">
       
-      {/* --- HERO SECTION --- */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden border-b border-zinc-900">
-        <div className="absolute inset-0 z-0">
-          <img src={worshipImg} alt="Hero" className="w-full h-full object-cover opacity-20 grayscale" />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-950/50 via-blue-950 to-blue-950" />
-        </div>
-
+      {/* 1. HERO SECTION */}
+      <section className="relative h-[60vh] flex items-center justify-center bg-zinc-900 overflow-hidden">
+        <img
+          src={worshipImg}
+          alt="Hero"
+          className="absolute inset-0 w-full h-full object-cover opacity-30 scale-110"
+        />
         <div className="relative z-10 text-center px-6">
-          <motion.span 
-            initial={{ opacity: 0, letterSpacing: "0.2em" }}
-            animate={{ opacity: 1, letterSpacing: "0.5em" }}
-            transition={{ duration: 1 }}
-            className="block text-xs font-bold text-red-600 uppercase mb-6"
-          >
+          <span className="text-amber-500 uppercase tracking-[0.6em] text-xs font-black block mb-4">
             Heart of the Church
-          </motion.span>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-8xl font-light tracking-tighter"
-          >
-            OUR <span className="italic font-serif text-amber-500">MINISTRIES.</span>
-          </motion.h1>
-          <motion.p {...fadeUp} className="max-w-2xl mx-auto mt-8 text-zinc-400 font-light text-lg">
+          </span>
+          <h1 className="text-6xl md:text-9xl font-black text-white uppercase tracking-tighter leading-none">
+            OUR <span className="text-blue-600 italic">MINISTRIES</span>
+          </h1>
+          <p className="mt-8 max-w-2xl mx-auto text-zinc-400 font-light text-lg">
             Serving God and His people through diverse communities that nurture growth, unity, and purpose.
-          </motion.p>
+          </p>
         </div>
       </section>
 
-      {/* --- MINISTRIES ALTERNATING LIST --- */}
-      <section className="py-24 container mx-auto px-6">
-        <div className="space-y-32 md:space-y-48">
-          {ministries.map((m, i) => (
-            <motion.div 
-              key={i} 
-              {...fadeUp}
-              className={`flex flex-col md:flex-row gap-12 md:gap-24 items-center ${
-                i % 2 !== 0 ? "md:flex-row-reverse" : ""
-              }`}
-            >
-              {/* Image Container */}
-              <div className="w-full md:w-1/2 relative group">
-                <div className="overflow-hidden">
-                  <img 
-                    src={m.img} 
-                    alt={m.title} 
-                    className="w-full h-[400px] md:h-[600px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" 
-                  />
-                </div>
-                {/* Decorative Frame */}
-                <div className={`absolute -bottom-6 ${i % 2 !== 0 ? "-left-6" : "-right-6"} w-24 h-24 border border-red-600/30 -z-10`} />
-              </div>
+      {/* 2. MINISTRIES LIST - Alternating Layout */}
+      <section className="py-24">
+        {ministries.map((m, i) => (
+          <div 
+            key={i} 
+            className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center mb-32 lg:mb-0`}
+          >
+            {/* Image Container */}
+            <div className="w-full lg:w-1/2 overflow-hidden bg-zinc-100">
+              <img
+                src={m.img}
+                alt={m.title}
+                className="w-full h-[400px] lg:h-[700px] object-cover hover:grayscale-0 transition-all duration-1000 hover:scale-105"
+              />
+            </div>
 
-              {/* Text Content */}
-              <div className="w-full md:w-1/2 space-y-6">
-                <span className="text-[10px] font-black tracking-[0.5em] text-red-600 uppercase block">
+            {/* Text Container */}
+            <div className="w-full lg:w-1/2 p-12 md:p-24 relative">
+              {/* Large Background Number */}
+              <span className="absolute top-10 left-10 text-[12rem] font-black text-zinc-50 opacity-10 pointer-events-none select-none">
+                0{i + 1}
+              </span>
+              
+              <div className="relative z-10">
+                <span className="text-red-600 font-mono tracking-widest text-sm uppercase block mb-4">
                   Ministry — 0{i + 1}
                 </span>
-                <h2 className="text-4xl md:text-6xl font-light tracking-tighter">
-                  {m.title.split(" ")[0]} <br />
-                  <span className="italic font-serif text-amber-500">{m.title.split(" ").slice(1).join(" ")}</span>
+                <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-none">
+                  {m.title}
                 </h2>
-                <p className="text-zinc-400 font-light leading-relaxed text-lg max-w-md">
+                <p className="text-zinc-500 text-lg leading-relaxed font-light mb-10 max-w-md">
                   {m.desc}
                 </p>
-                <div className="pt-6">
-                  <Link 
-                    to="/contact" 
-                    className="inline-flex items-center gap-4 text-xs font-black uppercase tracking-widest border-b-2 border-zinc-800 pb-2 hover:border-red-600 hover:text-red-600 transition-all group"
-                  >
-                    Get Involved 
-                    <FaChevronRight className="group-hover:translate-x-2 transition-transform" />
-                  </Link>
-                </div>
+
+                <Link 
+                  to="/contact" 
+                  className="inline-flex items-center gap-4 group text-sm font-black uppercase tracking-widest border-b-2 border-black pb-2 hover:text-blue-600 hover:border-blue-600 transition-all"
+                >
+                  Get Involved 
+                  <FaArrowRight className="group-hover:translate-x-2 transition-transform" />
+                </Link>
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* 3. CTA SECTION */}
+      <section className="bg-zinc-900 text-white py-32 px-6 text-center relative overflow-hidden">
+        {/* Subtle decorative circles */}
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-red-600/10 rounded-full blur-3xl"></div>
+
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-8">
+            READY TO FIND <br /> 
+            <span className="text-amber-500 italic">YOUR PLACE?</span>
+          </h2>
+          <p className="text-zinc-400 text-xl font-light mb-12 max-w-2xl mx-auto leading-relaxed">
+            Whether you are a professional, a student, a parent, or a child, there is a community waiting for you at AFC Kiambaa.
+          </p>
+
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <Link 
+              to="/contact" 
+              className="w-full md:w-auto bg-blue-600 hover:bg-white hover:text-black text-white px-10 py-5 font-black uppercase tracking-widest text-xs transition-all duration-500"
+            >
+              Join A Ministry
+            </Link>
+            <Link 
+              to="/services" 
+              className="w-full md:w-auto border border-zinc-700 hover:border-white px-10 py-5 font-black uppercase tracking-widest text-xs transition-all duration-500"
+            >
+              View Service Times
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* --- MINIMALIST CTA --- */}
-      <section className="py-32 bg-zinc-100 text-zinc-950 overflow-hidden">
-        <div className="container mx-auto px-6 relative">
-          <div className="absolute top-0 right-0 text-[15rem] font-black text-zinc-200/50 leading-none select-none -translate-y-1/2">
-            AFC
-          </div>
-          
-          <div className="relative z-10 max-w-4xl">
-            <motion.h2 {...fadeUp} className="text-5xl md:text-7xl font-light tracking-tighter mb-8 text-blue-950">
-              READY TO FIND <br /> <span className="italic font-serif text-red-600">YOUR PLACE?</span>
-            </motion.h2>
-            <motion.p {...fadeUp} className="text-zinc-500 text-lg font-light mb-12 max-w-xl">
-              Whether you are a professional, a student, a parent, or a child, there is a community waiting for you at AFC Kiambaa.
-            </motion.p>
-
-            <motion.div {...fadeUp} className="flex flex-col md:flex-row gap-6">
-              <Link 
-                to="/contact" 
-                className="px-12 py-5 bg-blue-950 text-white text-xs font-bold uppercase tracking-widest hover:bg-red-600 transition-all duration-500 text-center"
-              >
-                Join A Ministry
-              </Link>
-              <Link 
-                to="/services" 
-                className="px-12 py-5 border border-zinc-300 text-zinc-950 text-xs font-bold uppercase tracking-widest hover:border-blue-950 transition-all duration-500 text-center"
-              >
-                View Service Times
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      
     </div>
   );
 }

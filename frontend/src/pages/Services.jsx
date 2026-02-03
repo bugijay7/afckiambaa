@@ -78,7 +78,7 @@ export default function Services() {
       </section>
 
       {/* 3. WEEKDAY SERVICES (Modern Grid) */}
-      <section className="bg-amber-900 py-32 px-6">
+      <section className="bg-zinc-900 py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-16">
             <div className="lg:col-span-1">
