@@ -4,7 +4,7 @@ import faithImg2 from "../../assets/hero3.jpeg";
 
 function StatementOfFaith() {
   return (
-    <section id="faith" className="bg-white py-20">
+    <section id="faith" className="bg-gray-200 py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-8">
 
         {/* Top Left - Image */}

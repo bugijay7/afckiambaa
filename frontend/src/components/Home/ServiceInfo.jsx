@@ -39,7 +39,7 @@ export default function ServiceInfo() {
   ];
 
   return (
-    <section className="bg-white py-16 px-6 md:px-20 font-montserrat">
+    <section className="bg-gray-200 py-16 px-6 md:px-20 font-montserrat">
       
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-12">
 
@@ -61,7 +61,7 @@ export default function ServiceInfo() {
               data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
               data-aos-delay={index * 150}
               data-aos-duration="700"
-              className="border border-accent-content p-5 text-left shadow-sm hover:shadow-lg transition-all duration-300 rounded-md bg-white"
+              className="border border-accent-content p-5 text-left shadow-sm hover:shadow-lg transition-all duration-300 rounded-md bg-gray-200"
             >
               {service.icon}
 

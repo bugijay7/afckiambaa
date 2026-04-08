@@ -68,7 +68,7 @@ export default function Login() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="email@afckiambaa.org"
-                className="w-full bg-transparent border-b-2 border-zinc-400 py-3 px-2 focus:border-red-700 outline-none transition-colors text-zinc-900 placeholder:text-zinc-400 font-medium"
+                className="w-full bg-transparent border-b-2 border-zinc-400 py-3 px-2 focus:border-red-700 outline-none transition-colors text-zinc-900 placeholder:text-zinc-100 font-medium"
               />
             </div>
 
@@ -83,7 +83,7 @@ export default function Login() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="••••••••"
-                className="w-full bg-transparent border-b-2 border-zinc-400 py-3 px-2 focus:border-red-700 outline-none transition-colors text-zinc-900 placeholder:text-zinc-400 font-medium"
+                className="w-full bg-transparent border-b-2 border-zinc-400 py-3 px-2 focus:border-red-700 outline-none transition-colors text-zinc-900 placeholder:text-zinc-100 font-medium"
               />
             </div>
 

@@ -11,7 +11,7 @@ export default function Project() {
   const images = [prayerCenter1, prayerCenter2, prayerCenter3, prayerCenter4];
 
   return (
-    <div className="bg-white text-black font-sans selection:bg-amber-100">
+    <div className="bg-gray-200 text-black font-sans selection:bg-amber-100">
       
       {/* 1. HERO SECTION */}
       <section className="relative min-h-screen flex items-center">
@@ -107,7 +107,7 @@ export default function Project() {
               alt="Vision"
               className="w-full h-[600px] object-cover shadow-2xl"
             />
-            <div className="absolute bottom-0 right-0 bg-white p-8">
+            <div className="absolute bottom-0 right-0 bg-gray-200 p-8">
               <p className="text-[10px] font-extrabold tracking-[0.3em] uppercase text-amber-600 mb-2">Investment Status</p>
               <p className="text-2xl font-black text-red-600 italic">100% Kingdom Focused</p>
             </div>

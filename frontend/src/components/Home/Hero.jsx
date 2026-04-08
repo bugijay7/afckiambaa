@@ -75,7 +75,7 @@ function Hero() {
       <div className="absolute bottom-6 left-6 z-20">
         <Link
           to="/events"
-          className="btn btn-outline btn-secondary text-white border-white hover:bg-white hover:text-black transition-all"
+          className="btn btn-outline btn-secondary text-white border-white hover:bg-gray-200 hover:text-black transition-all"
         >
           View Events
         </Link>

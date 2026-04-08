@@ -5,7 +5,7 @@ import { FaFacebookF, FaYoutube, FaInstagram, FaWhatsapp } from "react-icons/fa"
 
 function Footer() {
   return (
-    <footer className="bg-blue-950 text-zinc-100 pt-24 pb-12 border-t border-zinc-900">
+    <footer className="bg-blue-950 text-zinc-100 pt-24 pb-12">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           
@@ -26,10 +26,17 @@ function Footer() {
             </div>
             {/* SOCIALS */}
             <div className="flex gap-6 text-zinc-100">
-               <a href="#" className="hover:text-red-600 transition-colors"><FaFacebookF size={20}/></a>
-               <a href="#" className="hover:text-red-600 transition-colors"><FaYoutube size={20}/></a>
-               <a href="#" className="hover:text-red-600 transition-colors"><FaInstagram size={20}/></a>
-               <a href="#" className="hover:text-red-600 transition-colors"><FaWhatsapp size={20}/></a>
+               <a href="https://www.facebook.com/Afckiambaa" className="hover:text-red-600 transition-colors"><FaFacebookF size={20}/></a>
+               <a href="https://www.youtube.com/@a.f.c.kiambaa" className="hover:text-red-600 transition-colors"><FaYoutube size={20}/></a>
+               <a href="https://www.instagram.com/afckiambaa_" className="hover:text-red-600 transition-colors"><FaInstagram size={20}/></a>
+              <a
+  href="https://wa.me/254722850169"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="hover:text-red-600 transition-colors"
+>
+  <FaWhatsapp size={20} />
+</a>
             </div>
           </div>
 

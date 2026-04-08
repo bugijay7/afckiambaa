@@ -45,7 +45,7 @@ function Beliefs() {
           {beliefs.map((belief, index) => (
             <div
               key={index}
-              className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-6 hover:scale-105 hover:shadow-2xl transition-all duration-300 text-left"
+              className="bg-gray-200/10 backdrop-blur-md rounded-xl shadow-lg p-6 hover:scale-105 hover:shadow-2xl transition-all duration-300 text-left"
             >
               <h3 className="text-xl md:text-2xl font-semibold text-yellow-300 mb-3">
                 {belief.title}

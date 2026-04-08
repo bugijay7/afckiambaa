@@ -39,7 +39,7 @@ function Ministries() {
   ];
 
   return (
-    <div className="bg-white text-black selection:bg-blue-100">
+    <div className="bg-gray-200 text-black selection:bg-blue-100">
       
       {/* 1. HERO SECTION */}
       <section className="relative h-[60vh] flex items-center justify-center bg-zinc-900 overflow-hidden">
@@ -55,7 +55,7 @@ function Ministries() {
           <h1 className="text-6xl md:text-9xl font-black text-white uppercase tracking-tighter leading-none">
             OUR <span className="text-blue-600 italic">MINISTRIES</span>
           </h1>
-          <p className="mt-8 max-w-2xl mx-auto text-zinc-400 font-light text-lg">
+          <p className="mt-8 max-w-2xl mx-auto text-zinc-100 font-light text-lg">
             Serving God and His people through diverse communities that nurture growth, unity, and purpose.
           </p>
         </div>
@@ -96,7 +96,7 @@ function Ministries() {
                 </p>
 
                 <Link 
-                  to="/contact" 
+                  to="/ministries/signup" 
                   className="inline-flex items-center gap-4 group text-sm font-black uppercase tracking-widest border-b-2 border-black pb-2 hover:text-blue-600 hover:border-blue-600 transition-all"
                 >
                   Get Involved 
@@ -119,14 +119,14 @@ function Ministries() {
             READY TO FIND <br /> 
             <span className="text-amber-500 italic">YOUR PLACE?</span>
           </h2>
-          <p className="text-zinc-400 text-xl font-light mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-zinc-100 text-xl font-light mb-12 max-w-2xl mx-auto leading-relaxed">
             Whether you are a professional, a student, a parent, or a child, there is a community waiting for you at AFC Kiambaa.
           </p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <Link 
               to="/contact" 
-              className="w-full md:w-auto bg-blue-600 hover:bg-white hover:text-black text-white px-10 py-5 font-black uppercase tracking-widest text-xs transition-all duration-500"
+              className="w-full md:w-auto bg-blue-600 hover:bg-gray-200 hover:text-black text-white px-10 py-5 font-black uppercase tracking-widest text-xs transition-all duration-500"
             >
               Join A Ministry
             </Link>

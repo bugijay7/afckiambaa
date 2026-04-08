@@ -52,7 +52,7 @@ export default function CTASection() {
 
           <Link
             to="/contact"
-            className="btn btn-outline border-secondary text-xs text-secondary hover:bg-white hover:text-primary w-full sm:w-auto"
+            className="btn btn-outline border-secondary text-xs text-secondary hover:bg-gray-200 hover:text-primary w-full sm:w-auto"
           >
             Get In Touch
           </Link>
@@ -61,8 +61,8 @@ export default function CTASection() {
       </div>
 
       {/* 🔹 Decorative glows (stay static) */}
-      <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
-      <div className="absolute -top-10 -left-10 w-52 h-52 bg-white/10 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-gray-200/10 rounded-full blur-3xl"></div>
+      <div className="absolute -top-10 -left-10 w-52 h-52 bg-gray-200/10 rounded-full blur-3xl"></div>
     </section>
   );
 }

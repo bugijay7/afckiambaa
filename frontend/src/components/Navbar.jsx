@@ -72,7 +72,7 @@ function Navbar() {
                 About <FaChevronDown className="text-[8px] group-hover:rotate-180 transition-transform" />
               </button>
               <div className="absolute top-full left-0 w-52 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                <ul className="bg-white border-t-4 border-red-600 shadow-2xl py-2">
+                <ul className="bg-gray-200 border-t-4 border-red-600 shadow-2xl py-2">
                   {aboutLinks.map((link) => (
                     <li key={link.name}>
                       <a 
@@ -101,7 +101,7 @@ function Navbar() {
 
           {/* Giving Button & Mobile Toggle */}
           <div className="flex items-center gap-6">
-            <Link to="/giving" className="hidden md:block px-8 py-3 bg-red-600 hover:bg-white hover:text-blue-950 text-white text-[10px] font-black uppercase tracking-widest transition-all duration-500 shadow-lg shadow-red-600/20">
+            <Link to="/giving" className="hidden md:block px-8 py-3 bg-red-600 hover:bg-gray-200 hover:text-blue-950 text-white text-[10px] font-black uppercase tracking-widest transition-all duration-500 shadow-lg shadow-red-600/20">
               Giving
             </Link>
             <button 

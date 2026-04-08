@@ -8,7 +8,7 @@ function Mission() {
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2  place-items-center">
 
         {/* Mission Card */}
-        <div className="card bg-white w-full max-w-sm shadow-lg hover:shadow-xl transition">
+        <div className="card bg-gray-200 w-full max-w-sm shadow-lg hover:shadow-xl transition">
           <figure className="px-6 pt-6">
             <img
               src={missionImg}
@@ -33,7 +33,7 @@ function Mission() {
         </div>
 
         {/* Vision Card */}
-        <div className="card bg-white w-full max-w-sm shadow-lg hover:shadow-xl transition">
+        <div className="card bg-gray-200 w-full max-w-sm shadow-lg hover:shadow-xl transition">
           <figure className="px-6 pt-6">
             <img
               src={visionImg}

@@ -15,6 +15,8 @@ import Livestream from "./pages/LiveStream";
 import EventsDetails from "./pages/events/EventDetail";
 import Campuses from "./pages/Campuses";
 
+import MinistrySignup from "./pages/ministries/MinistrySignup";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PrivateRoute from "./components/PrivateRoute";
@@ -44,6 +46,8 @@ function App() {
         <Route path="/resources" element={ <Resources /> } />
         <Route path="/events/:id" element={<EventsDetails />} />
         <Route path="/services" element={ <Services />} />
+
+        <Route path="/ministries/signup" element={ <MinistrySignup />} />
 
         {/* 🔐 Protected Admin Routes */}
         <Route

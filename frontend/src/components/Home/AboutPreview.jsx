@@ -5,7 +5,7 @@ import img2 from "../../assets/hero3.jpeg"; // bottom image
 
 function AboutPreview() {
   return (
-    <section className="bg-white text-white---content">
+    <section className="bg-gray-200 text-white---content">
       <div className="max-w-[1200px] mx-auto py-12 md:py-20 px-6 md:px-10 grid md:grid-cols-2 gap-10 items-center">
         {/* TEXT */}
         <div className="text-left md:text-left">

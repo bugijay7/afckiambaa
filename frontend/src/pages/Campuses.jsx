@@ -483,133 +483,144 @@ export default function Campuses() {
   });
 
   return (
-    <div className="bg-blue-950 text-zinc-100 font-sans antialiased">
-      
-      {/* --- HERO SECTION --- */}
-      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden border-b border-zinc-900">
-        <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="National Presence" className="w-full h-full object-cover opacity-20 grayscale" />
-        </div>
-        <div className="relative z-10 text-center px-6">
-          <motion.span className="block text-xs font-bold text-red-600 uppercase tracking-[0.5em] mb-4">
-            National Directory
-          </motion.span>
-          <h1 className="text-5xl md:text-8xl font-light tracking-tighter">
-            FIND A <span className="italic font-serif text-amber-500">CAMPUS.</span>
-          </h1>
-        </div>
-      </section>
-
-     
-
-      {/* --- NATIONAL HEADQUARTERS CALLOUT --- */}
-      <section className="py-24 container mx-auto px-6">
-        <motion.div {...fadeUp} className="bg-zinc-100 text-zinc-950 flex flex-col md:flex-row items-stretch">
-          <div className="md:w-1/2 p-12 md:p-20 space-y-6">
-            <span className="text-[10px] font-black tracking-[0.4em] text-red-600 uppercase">National Headquarters</span>
-            <h2 className="text-4xl font-light tracking-tighter leading-none text-blue-950">
-              BAHATI <span className="italic font-serif text-amber-600 text-3xl">NAIROBI</span>
-            </h2>
-            <p className="text-zinc-900 font-light leading-relaxed">
-              The central hub for all Apostolic Faith Church operations in Kenya, providing spiritual oversight to our {allChurches.length}+ campuses.
-            </p>
-            <a href="https://apostolicfaithkenya.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest border-b border-zinc-900 pb-1 hover:text-red-600 hover:border-red-600 transition-all">
-              Visit Official Webssite <FaExternalLinkAlt />
-            </a>
-          </div>
-          <div className="md:w-1/2 overflow-hidden">
-             <img src={yourImportedImage} alt="Headquarters" className="w-full h-full object-cover hover:grayscale-0 transition-all duration-1000" />
-          </div>
-        </motion.div>
-      </section>
-
-       {/* --- SEARCH & FILTER NAV (STICKY) --- */}
-      <nav className="sticky top-0 z-50 bg-blue-950/90 backdrop-blur-xl border-b border-zinc-900 py-6">
-       
-
-            {/* Region Scroll */}
-            <div className="md:max-w-[1200px] mx-auto flex items-center gap-4 overflow-x-auto no-scrollbar pb-2 md:pb-0">
-              {regions.map((r) => (
-                <button
-                  key={r}
-                  onClick={() => setActiveRegion(r)}
-                  className={`whitespace-nowrap px-6 py-2 text-[10px] font-bold uppercase tracking-widest border transition-all duration-500 ${
-                    activeRegion === r 
-                    ? "bg-red-600 border-red-600 text-white" 
-                    : "border-zinc-800 text-zinc-500 hover:text-zinc-100"
-                  }`}
-                >
-                  {r}
-                </button>
-              ))}
-        </div>
-      </nav>
-
-      {/* --- CHURCH DIRECTORY (THE DATA) --- */}
-      <section className="py-24 container mx-auto px-6">
-        <div className="flex justify-between items-end mb-12 border-b border-zinc-900 pb-6">
-          <h3 className="text-xs font-black tracking-[0.4em] uppercase text-zinc-500">
-            Directory Results ({filteredChurches.length})
-          </h3>
-          <span className="text-[10px] text-zinc-600 uppercase tracking-widest italic">
-            Sorted alphabetically
-          </span>
-        </div>
-
-        {/* High-Volume List Layout */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-4">
-          <AnimatePresence mode="popLayout">
-            {filteredChurches.map((church, idx) => (
-              <motion.div
-                layout
-                key={church.name}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="flex items-center justify-between py-4 border-b border-zinc-900 group hover:border-amber-500 transition-colors"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-8 h-8 flex items-center justify-center border border-zinc-800 group-hover:bg-red-600 group-hover:border-red-600 transition-all">
-                    <FaMapMarkerAlt className="text-[10px] text-amber-500 group-hover:text-white" />
-                  </div>
-                  <div>
-                    <h5 className="text-sm font-bold tracking-tight text-zinc-300 group-hover:text-white transition-colors">
-                      {church.name}
-                    </h5>
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-bold">{church.region} • {church.town}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {/* Empty State */}
-        {filteredChurches.length === 0 && (
-          <div className="text-center py-40 border border-dashed border-zinc-800">
-            <p className="text-zinc-500 italic font-serif">No campuses match your current search or filter.</p>
-            <button 
-              onClick={() => {setActiveRegion("All"); setSearchTerm("");}}
-              className="mt-4 text-[10px] font-black uppercase tracking-widest text-red-600 underline"
-            >
-              Reset All Filters
-            </button>
-          </div>
-        )}
-      </section>
-
-      {/* --- FOOTER CTA --- */}
-      <section className="py-32 bg-zinc-100 text-zinc-950 text-center">
-        <motion.div {...fadeUp} className="max-w-2xl mx-auto px-6">
-          <h2 className="text-4xl md:text-6xl font-light tracking-tighter mb-8 text-blue-950">
-            MANY PARTS, <span className="italic font-serif text-red-600">ONE BODY.</span>
-          </h2>
-          <p className="text-zinc-500 font-light leading-relaxed">
-            From the bustling streets of Nairobi to the quiet hills of the Rift, our mission remains the same: Holiness unto the Lord.
-          </p>
-        </motion.div>
-      </section>
-
+    <div className="bg-gray-200 text-black selection:bg-blue-100 min-h-screen font-sans">
+  
+  {/* HERO SECTION */}
+  <section className="relative pt-48 pb-24 px-6 overflow-hidden bg-zinc-900">
+    <img 
+      src={heroImg} 
+      alt="National Presence" 
+      className="absolute inset-0 w-full   object-cover opacity-30 grayscale"
+    />
+    <div className="relative z-10 max-w-7xl mx-auto">
+      <span className="text-amber-500 uppercase tracking-[0.4em] text-xs font-black block mb-6">
+        National Directory
+      </span>
+      <h1 className="text-7xl md:text-9xl font-black tracking-tighter text-white uppercase leading-[0.8] mb-4">
+        FIND A <span className="text-blue-600 italic">CAMPUS.</span>
+      </h1>
     </div>
+  </section>
+
+  {/* NATIONAL HEADQUARTERS */}
+  <section className="py-32 px-6 bg-gray-200">
+    <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
+      <div className="lg:col-span-7 space-y-8 order-2 lg:order-1">
+        <span className="inline-block px-4 py-1 bg-blue-900 text-white text-[10px] font-black uppercase tracking-widest">
+          National Headquarters
+        </span>
+        <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none">
+          BAHATI <span className="text-blue-600 block">NAIROBI</span>
+        </h2>
+        <p className="text-2xl text-zinc-600 leading-tight font-bold max-w-xl">
+          The central hub for all Apostolic Faith Church operations in Kenya, providing spiritual oversight to our {allChurches.length}+ campuses.
+        </p>
+        <a 
+          href="https://apostolicfaithkenya.com" 
+          target="_blank" 
+          rel="noreferrer"
+          className="inline-flex items-center gap-4 text-xs font-black uppercase tracking-widest border-b-2 border-red-600 pb-2 hover:text-red-600 transition-colors group"
+        >
+          Visit Official Website <FaExternalLinkAlt className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+        </a>
+      </div>
+      <div className="lg:col-span-5 order-1 lg:order-2">
+        <div className="relative p-4 border border-zinc-200">
+          <img src={yourImportedImage} alt="Headquarters" className="w-full  hover:grayscale-0 transition-all duration-700 object-cover aspect-square md:aspect-auto" />
+          <div className="absolute -bottom-8 -left-8 bg-amber-500 p-8 hidden md:block shadow-xl">
+             <div className="h-2 w-12 bg-white mb-2"></div>
+             <p className="text-white font-black uppercase text-xs tracking-tighter">Established Authority</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* REGION FILTER */}
+  <nav className="sticky top-0 z-40 bg-amber-600 py-6 px-6 shadow-2xl">
+    <div className="max-w-7xl mx-auto flex flex-wrap gap-3 justify-center">
+      {regions.map((r) => (
+        <button
+          key={r}
+          onClick={() => setActiveRegion(r)}
+          className={`px-6 py-2 text-[10px] font-black uppercase tracking-widest transition-all border ${
+            activeRegion === r 
+            ? "bg-blue-600 border-blue-600 text-white" 
+            : "bg-transparent border-white/10 text-zinc-100 hover:border-white/40 hover:text-white"
+          }`}
+        >
+          {r}
+        </button>
+      ))}
+    </div>
+  </nav>
+
+  {/* DIRECTORY */}
+  <section className="py-24 px-6 max-w-7xl mx-auto">
+    <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b-2 border-black pb-8 gap-4">
+      <div>
+        <h3 className="text-4xl font-black uppercase tracking-tighter">
+          Directory Results <span className="text-blue-600">({filteredChurches.length})</span>
+        </h3>
+        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400">
+          Sorted alphabetically
+        </span>
+      </div>
+    </div>
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-zinc-300 border border-zinc-300 shadow-2xl">
+      {filteredChurches.map((church) => (
+        <div 
+          key={church.name} 
+          className="bg-white p-10 hover:bg-zinc-900 group transition-all duration-500 relative overflow-hidden"
+        >
+          <div className="flex gap-6 items-start relative z-10">
+            <FaMapMarkerAlt className="text-2xl text-red-600 group-hover:text-blue-500 transition-colors" />
+            <div className="space-y-2">
+              <h5 className="text-xl font-black uppercase tracking-tight group-hover:text-white transition-colors">
+                {church.name}
+              </h5>
+              <p className="text-xs font-black uppercase tracking-widest text-zinc-400 group-hover:text-amber-500 transition-colors">
+                {church.region} • {church.town}
+              </p>
+            </div>
+          </div>
+          <div className="absolute -right-4 -bottom-4 text-6xl text-zinc-50 group-hover:text-white/5 font-black italic transition-colors">
+             AFC
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* EMPTY STATE */}
+    {filteredChurches.length === 0 && (
+      <div className="py-24 text-center space-y-8 bg-white border-4 border-dashed border-zinc-200">
+        <p className="text-2xl font-bold text-zinc-400 italic">No campuses match your current search or filter.</p>
+        <button 
+          onClick={() => { setActiveRegion("All"); setSearchTerm(""); }}
+          className="bg-black text-white px-10 py-4 font-black uppercase tracking-widest text-xs hover:bg-red-600 transition-all shadow-xl"
+        >
+          Reset All Filters
+        </button>
+      </div>
+    )}
+  </section>
+
+  {/* FOOTER CALLOUT */}
+  <section className="bg-blue-950 py-32 px-6 text-center text-white">
+    <div className="max-w-4xl mx-auto space-y-8">
+      <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none">
+        MANY PARTS, <span className="italic text-amber-400">ONE BODY.</span>
+      </h2>
+      <div className="h-1 w-24 bg-white mx-auto"></div>
+      <p className="text-xl md:text-2xl font-light leading-relaxed max-w-2xl mx-auto opacity-90 italic">
+        "From the bustling streets of Nairobi to the quiet hills of the Rift, our mission remains the same: <span className="font-black not-italic border-b-4 border-red-600">Holiness unto the Lord.</span>"
+      </p>
+    </div>
+  </section>
+
+</div>
+
+  
   );
 }

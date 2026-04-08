@@ -65,7 +65,7 @@ function CreateEvent() {
   };
 
   const labelStyle = "block text-xs font-black uppercase tracking-[0.2em] text-zinc-900 mb-2";
-  const inputStyle = "w-full bg-transparent border-b-2 border-zinc-400 py-3 px-2 focus:border-red-700 outline-none transition-colors text-zinc-900 font-medium placeholder:text-zinc-400";
+  const inputStyle = "w-full bg-transparent border-b-2 border-zinc-400 py-3 px-2 focus:border-red-700 outline-none transition-colors text-zinc-900 font-medium placeholder:text-zinc-100";
 
   return (
     <div className="min-h-screen bg-gray-200 text-zinc-900 font-sans antialiased pb-20">
@@ -115,7 +115,7 @@ function CreateEvent() {
                   <label className={labelStyle}>Event Poster</label>
                   <div className="relative border-2 border-dashed border-zinc-400 p-6 text-center hover:border-red-700 transition-colors">
                     <input type="file" accept="image/*" onChange={handleImageChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" required />
-                    <FaCloudUploadAlt className="mx-auto text-2xl text-zinc-400 mb-2" />
+                    <FaCloudUploadAlt className="mx-auto text-2xl text-zinc-100 mb-2" />
                     <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">
                       {image ? image.name : "Click to upload image"}
                     </p>

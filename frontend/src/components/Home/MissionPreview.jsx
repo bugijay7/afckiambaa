@@ -25,7 +25,7 @@ function MissionPreview() {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-gray-200">
 
       <section 
         className="py-16 px-6 max-w-[1200px] mx-auto font-montserrat"

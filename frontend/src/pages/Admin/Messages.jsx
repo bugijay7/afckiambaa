@@ -92,7 +92,7 @@ export default function Messages() {
                 {messages.map((msg) => (
                   <motion.tr 
                     key={msg._id}
-                    className={`transition-colors duration-300 ${msg.replied ? "bg-zinc-300/50" : "hover:bg-white/40"}`}
+                    className={`transition-colors duration-300 ${msg.replied ? "bg-zinc-300/50" : "hover:bg-gray-200/40"}`}
                   >
                     {/* Sender Info */}
                     <td className="p-6 align-top w-64">
@@ -103,7 +103,7 @@ export default function Messages() {
                         <span className="text-[11px] font-bold text-zinc-500 flex items-center gap-2">
                           <FaPhoneAlt className="text-[9px]" /> {msg.phone}
                         </span>
-                        <span className="text-[9px] text-zinc-400 font-bold mt-2 italic">
+                        <span className="text-[9px] text-zinc-100 font-bold mt-2 italic">
                           {new Date(msg.createdAt).toLocaleDateString()}
                         </span>
                       </div>
@@ -121,7 +121,7 @@ export default function Messages() {
                       <button 
                         onClick={() => toggleReplied(msg._id)}
                         className={`flex items-center gap-2 text-[10px] font-black uppercase tracking-widest transition-colors ${
-                          msg.replied ? "text-green-700" : "text-zinc-400 hover:text-red-700"
+                          msg.replied ? "text-green-700" : "text-zinc-100 hover:text-red-700"
                         }`}
                       >
                         {msg.replied ? <FaCheckCircle /> : <FaRegCircle />}
@@ -133,7 +133,7 @@ export default function Messages() {
                     <td className="p-6 align-top">
                       <button 
                         onClick={() => deleteMessage(msg._id)}
-                        className="text-zinc-400 hover:text-red-700 transition-colors p-2"
+                        className="text-zinc-100 hover:text-red-700 transition-colors p-2"
                         title="Delete Permanently"
                       >
                         <FaTrash />
