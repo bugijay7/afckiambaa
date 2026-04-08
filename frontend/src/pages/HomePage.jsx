@@ -36,9 +36,9 @@ function HomePage() {
   }, []);
 
   const slides = [
-    { id: 1, image: hero1, title: "Reaching Souls, Developing Winners", state: "The Year Of Fresh Ideas", subtitle: "Isaiah 43:18-19", button: "Who We Are", link: "/about", align: "left" },
-    { id: 2, image: hero2, title: "Welcome To Church", state: "Apostolic Faith Church Kiambaa", subtitle: "1 Peter 4:10", button: "Weekly Services", link: "/services", align: "right" },
-    { id: 3, image: hero3, title: "Apostolic Faith Church", state: "Where Everybody is Somebody", subtitle: "John 10:10", button: "Talk To Us", link: "/contact", align: "left" },
+    { id: 1, image: hero1, title: "Reaching Souls, Developing Winners", state: "The Year Of Fresh Ideas", subtitle: "Isaiah 43:18-19", button: "Who We Are", link: "/about" },
+    { id: 2, image: hero2, title: "Welcome To Church", state: "Apostolic Faith Church Kiambaa", subtitle: "1 Peter 4:10", button: "Weekly Services", link: "/services" },
+    { id: 3, image: hero3, title: "Apostolic Faith Church", state: "Where Everybody is Somebody", subtitle: "John 10:10", button: "Talk To Us", link: "/contact" },
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -68,28 +68,32 @@ function HomePage() {
             key={slide.id}
             src={slide.image}
             alt={`Hero ${slide.id}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === currentSlide ? "opacity-50" : "opacity-0"}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === currentSlide ? "opacity-70" : "opacity-0"}`}
           />
         ))}
         
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-black/90"></div>
+        {/* Unified Gradient for Left-Aligned Text */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div>
 
-        <button onClick={prevSlide} className="absolute left-6 top-1/2 -translate-y-1/2 z-30 p-4 text-white/30 hover:text-blue-500 transition-all transform hover:scale-110 bg-white/5 rounded-full backdrop-blur-sm border border-white/10">
-          <FaChevronLeft size={24} />
+        {/* Adjusted Navigation Buttons for Mobile */}
+        <button onClick={prevSlide} className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-30 p-2 md:p-4 text-white/20 md:text-white/30 hover:text-blue-500 transition-all transform hover:scale-110 bg-white/5 rounded-full backdrop-blur-sm border border-white/10">
+          <FaChevronLeft className="text-lg md:text-2xl" />
         </button>
-        <button onClick={nextSlide} className="absolute right-6 top-1/2 -translate-y-1/2 z-30 p-4 text-white/30 hover:text-blue-500 transition-all transform hover:scale-110 bg-white/5 rounded-full backdrop-blur-sm border border-white/10">
-          <FaChevronRight size={24} />
+        <button onClick={nextSlide} className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-30 p-2 md:p-4 text-white/20 md:text-white/30 hover:text-blue-500 transition-all transform hover:scale-110 bg-white/5 rounded-full backdrop-blur-sm border border-white/10">
+          <FaChevronRight className="text-lg md:text-2xl" />
         </button>
 
-        <div className={`relative z-10 h-full flex items-center px-12 md:px-24 max-w-[1600px] mx-auto ${slides[currentSlide].align === 'right' ? 'justify-end text-right' : 'justify-start text-left'}`}>
+        {/* All slides now align Left on Desktop and Center on Mobile */}
+        <div className="relative z-10 h-full flex items-center px-8 md:px-24 max-w-[1600px] mx-auto justify-center md:justify-start text-center md:text-left">
+          
           <div className="max-w-2xl lg:max-w-3xl">
-            <span data-aos="fade-down" className="text-amber-500 uppercase tracking-[0.6em] text-xs font-black block mb-6 animate-pulse">
+            <span data-aos="fade-down" className="text-amber-500 uppercase tracking-[0.4em] md:tracking-[0.6em] text-[10px] md:text-xs font-black block mb-6 animate-pulse">
               {slides[currentSlide].subtitle}
             </span>
-            <h2 data-aos="fade-up" data-aos-delay="400" className="text-white text-base md:text-lg font-medium uppercase tracking-[0.2em] mb-4 opacity-80">
+            <h2 data-aos="fade-up" data-aos-delay="400" className="text-white text-sm md:text-lg font-medium uppercase tracking-[0.2em] mb-4 opacity-80">
               {slides[currentSlide].state}
             </h2>
-            <h1 data-aos="fade-right" data-aos-delay="800" className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[1.1] uppercase mb-10">
+            <h1 data-aos="fade-right" data-aos-delay="800" className="text-3xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[1.1] uppercase mb-10">
               {slides[currentSlide].title.split(' ').map((word, index) => (
                  <span key={index} className={index === slides[currentSlide].title.split(' ').length - 1 ? "text-blue-600" : ""}>
                    {word}{' '}
@@ -97,7 +101,7 @@ function HomePage() {
               ))}
             </h1>
             <div data-aos="zoom-in" data-aos-delay="1200">
-              <Link to={slides[currentSlide].link} className="inline-block px-12 py-5 bg-blue-600 text-white font-bold uppercase tracking-widest text-xs hover:bg-red-600 transition-all shadow-xl">
+              <Link to={slides[currentSlide].link} className="inline-block px-8 md:px-12 py-4 md:py-5 bg-blue-600 text-white font-bold uppercase tracking-widest text-[10px] md:text-xs hover:bg-red-600 transition-all shadow-xl">
                 {slides[currentSlide].button}
               </Link>
             </div>
@@ -106,7 +110,7 @@ function HomePage() {
       </section>
 
       {/* 2. WORD OF THE YEAR 2026 SECTION */}
-      <section className="py-24 px-6 bg-white overflow-hidden">
+      <section className="py-24 px-6 bg-gray-200 overflow-hidden">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           {/* Bishop Image */}
           <div className="lg:col-span-5" data-aos="fade-right">
@@ -114,7 +118,7 @@ function HomePage() {
               <img 
                 src={pastorImg} 
                 alt="Bishop Peter Mungai" 
-                className="w-full h-auto shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000 border-b-8 border-blue-600" 
+                className="w-full h-auto shadow-2xl hover:grayscale-0 transition-all duration-1000 border-b-8 border-blue-600" 
               />
               <div className="absolute -bottom-6 -right-6 bg-amber-600 p-6 text-white hidden md:block">
                 <p className="font-black uppercase text-xl leading-none">The<br/>Visionary</p>
@@ -245,7 +249,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* 7. YOUTUBE VIDEO SECTION (Replaces Leadership) */}
+      {/* 7. YOUTUBE VIDEO SECTION */}
       <section className="py-32 px-6 bg-zinc-900 overflow-hidden">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div data-aos="fade-right">

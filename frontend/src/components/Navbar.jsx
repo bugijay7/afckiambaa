@@ -129,8 +129,8 @@ function Navbar() {
               <button onClick={() => setIsDropdownOpen(false)} className="text-white text-4xl"><HiOutlineX /></button>
             </div>
 
-            <ul className="flex-1 flex flex-col justify-center items-center gap-8">
-              {["Home", ...navLinks.map(l => l.name), "About", "Giving"].map((item) => (
+            <ul className="flex-1 flex flex-col justify-left items-start pl-10 pt-20 gap-8 ">
+              {["Home", "About", "Giving", ...navLinks.map(l => l.name)].map((item) => (
                 <li key={item}>
                   <Link 
                    to={
