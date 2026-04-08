@@ -229,7 +229,7 @@ function About() {
       </section>
 
       {/* 5. BELIEFS */}
-      <section id="beliefs" className="py-32 px-6 bg-zinc-900 border-t border-white/10">
+      <section id="beliefs" className="py-32 px-6 bg-blue-950 border-t border-white/10">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-6 mb-16">
             <h2 className="text-6xl font-black tracking-tighter text-white uppercase">
@@ -243,8 +243,8 @@ function About() {
                 <div className="text-amber-500 text-3xl mb-8 group-hover:text-blue-600 transition-colors">
                   {belief.icon}
                 </div>
-                <h3 className="font-black tracking-widest uppercase text-sm mb-4">{belief.title}</h3>
-                <p className="text-zinc-500 group-hover:text-zinc-800 text-sm leading-relaxed">
+                <h3 className="font-black tracking-widest uppercase text-amber-600 text-sm mb-4">{belief.title}</h3>
+                <p className="text-zinc-100 group-hover:text-zinc-800 text-sm leading-relaxed">
                   {belief.text}
                 </p>
               </div>
