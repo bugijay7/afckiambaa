@@ -25,8 +25,8 @@ function About() {
 
   const leaders = [
     { name: "PST. JOHN NJ'UNGE", title: "ASSISTANT PASTOR", img: leadership1, bio: "Committed to teaching the Word with clarity and power." },
-    { name: "ELDER ANDREW NJENGA", title: "CHURCH ELDER", img: leadership2, bio: "Empowering the next generation to walk in divine purpose." },
-    { name: "ELDER SAMUEL MWANIKI", title: "CHURCH SECRETARY", img: leadership3, bio: "Ensuring the house of God operates with excellence." },
+    { name: "ELDER SAMUEL MWANIKI", title: "CHURCH ELDER", img: leadership2, bio: "Empowering the next generation to walk in divine purpose." },
+    { name: "ELDER ANDREW NJENGA ", title: "CHURCH SECRETARY", img: leadership3, bio: "Ensuring the house of God operates with excellence." },
   ];
 
   useEffect(() => {
