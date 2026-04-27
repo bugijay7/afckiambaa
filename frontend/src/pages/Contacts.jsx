@@ -17,7 +17,12 @@ export default function ContactPage() {
   const [feedback, setFeedback] = useState("");
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: name === "phone" ? value.replace(/\D/g, "") : value
+    }));    
+
   };
 
   const handleSubmit = async (e) => {
@@ -26,26 +31,31 @@ export default function ContactPage() {
     setFeedback("");
 
     try {
-      const res = await fetch("https://afckiambaa-4bt6.onrender.com/api/messages", {
+      const params = new URLSearchParams();
+      params.append("name", formData.name);
+      params.append("phone", formData.phone);
+      params.append("email", formData.email);
+      params.append("message", formData.message); 
+
+      await fetch("https://script.google.com/macros/s/AKfycbzGBcwBUv6R79_Iu4P8btAzzFPQcT8mStOpvwoio0oMCjs1ZEPmtL_bdG51qqFDumspsA/exec", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        mode: "no-cors",
+        body: params
       });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        setFeedback("Success! Your message has reached us.");
-        setFormData({ name: "", phone: "", email: "", message: "" });
-      } else {
-        setFeedback(data.message || "Something went wrong.");
-      }
-    } catch {
-      setFeedback("Unable to send. Please try again later.");
+      setFeedback("Message sent successfully! We'll be in touch soon.");
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error:", error);
+      setFeedback("Something went wrong. Please try again later.");
     } finally {
       setLoading(false);
-      setTimeout(() => setFeedback(""), 5000);
-    }
+    } 
+
   };
 
   return (

@@ -6,7 +6,7 @@ import { FaArrowRight } from "react-icons/fa";
 import youthImg from "../assets/ministries/youth.webp";
 import childrenImg from "../assets/ministries/children.webp";
 import womenImg from "../assets/ministries/women.webp";
-import menImg from "../assets/ministries/men.webp";
+import menImg from "../assets/elders.jpg";
 import worshipImg from "../assets/ministries/worship.webp";
 
 function Ministries() {

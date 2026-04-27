@@ -6,3 +6,4 @@ const router = express.Router();
 router.post("/stkpush", stkPush);
 
 export default router;
+
